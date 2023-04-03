@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_03_190352) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_03_191237) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_190352) do
     t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "service_id", null: false
+    t.index ["service_id"], name: "index_service_dates_on_service_id"
   end
 
   create_table "service_timeslots", force: :cascade do |t|
@@ -60,6 +62,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_190352) do
     t.integer "slots"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "service_id", null: false
+    t.index ["service_id"], name: "index_service_timeslots_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -67,14 +71,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_190352) do
     t.string "store_details"
     t.integer "price"
     t.string "add_on"
-    t.bigint "service_category_id", null: false
-    t.bigint "service_date_id", null: false
-    t.bigint "service_timeslot_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["service_category_id"], name: "index_services_on_service_category_id"
-    t.index ["service_date_id"], name: "index_services_on_service_date_id"
-    t.index ["service_timeslot_id"], name: "index_services_on_service_timeslot_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,7 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_190352) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "services", "service_categories"
-  add_foreign_key "services", "service_dates"
-  add_foreign_key "services", "service_timeslots"
+  add_foreign_key "service_dates", "services"
+  add_foreign_key "service_timeslots", "services"
 end
