@@ -1,0 +1,2 @@
+class ServiceDate < ApplicationRecord
+end
