@@ -1,5 +1,5 @@
 class Service < ApplicationRecord
   belongs_to :service_category
-  belongs_to :service_date
-  belongs_to :service_timeslot
+  has_many :service_dates, dependent: :destroy
+  has_many :service_categories, dependent: :destroy
 end
