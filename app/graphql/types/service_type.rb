@@ -7,6 +7,7 @@ module Types
     field :store_details, String
     field :price, Integer
     field :add_on, String
+    field :image, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :service_category_id, Integer, null: false
