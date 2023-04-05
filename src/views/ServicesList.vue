@@ -92,7 +92,16 @@
           }}
         </p>
 
-        <button @click="addBooking()">Checkout</button>
+        <button
+          @click="
+            {
+              resetStep();
+              addBooking();
+            }
+          "
+        >
+          Checkout
+        </button>
       </div>
     </form>
   </div>
@@ -231,7 +240,7 @@ export default {
     } = useMutation(ADD_BOOKING, () => ({
       variables: {
         bookingDate: Date.now().toString(),
-        nameOfCustomer: this.firstName.value + " " + this.lastName.value,
+        nameOfCustomer: firstName.value + " " + lastName.value,
         serviceId: store.state.user.cart[0].id,
         amount: store.state.user.cart[0].price,
         status: "pending",
@@ -248,9 +257,7 @@ export default {
 
     onDone((result) => {
       console.log("ondone " + result);
-      router.push({
-        name: "home",
-      });
+      store.dispatch("clearCart");
       dateId.value = {};
       timeId.value = {};
       firstName.value = "";
@@ -283,6 +290,8 @@ export default {
         storeDetails: storeDetails,
         price: price,
         image: image,
+        firstName: this.firstName,
+        lastName: this.lastName,
         serviceCategoryId: serviceCategoryId,
         date: {
           id: this.dateId.id,
@@ -293,6 +302,10 @@ export default {
           time: this.timeId.time,
         },
       };
+
+      if (store.state.user.cart.length >= 1) {
+        return;
+      }
 
       store.dispatch("addToCart", {
         service: serviceObject,

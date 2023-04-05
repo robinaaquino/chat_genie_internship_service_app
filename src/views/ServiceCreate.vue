@@ -4,21 +4,21 @@
     <p>{{ errorMutation }}</p>
     <p v-if="errorMutation">{{ errorMutation }}</p>
     <form @submit.prevent="">
-      <label for="">details: </label>
+      <label for="">Details: </label>
       <input type="text" v-model="details" />
 
-      <label for="">storeDetails: </label>
+      <label for="">Store Details: </label>
       <input type="text" v-model="storeDetails" />
 
-      <label for="">addOn: </label>
+      <label for="">Add on: </label>
       <input type="text" v-model="addOn" />
 
-      <label for="">price: </label>
+      <label for="">Price: </label>
       <input type="number" v-model="price" />
 
       <label for="">Image: </label>
       <!-- <input type="file" @change="onAddFile" /> -->
-      <button @click="openUploadModal()"></button>
+      <button @click="openUploadModal()">Upload image</button>
 
       <button @click="createService()">Create service</button>
     </form>

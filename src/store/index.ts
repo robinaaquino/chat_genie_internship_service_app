@@ -34,6 +34,9 @@ export default createStore({
       state.user.role = "";
       state.user.cart = [];
     },
+    CLEAR_CART(state: any) {
+      state.user.cart = [];
+    },
   },
   actions: {
     addToCart({ commit }: { commit: any }, { service }: { service: any }) {
@@ -50,6 +53,9 @@ export default createStore({
     },
     clearUser({ commit }: { commit: any }) {
       commit("CLEAR_USER");
+    },
+    clearCart({ commit }: { commit: any }) {
+      commit("CLEAR_CART");
     },
   },
   modules: {},
