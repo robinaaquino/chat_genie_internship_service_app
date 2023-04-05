@@ -33,6 +33,16 @@
           width="150"
         />
 
+        <router-link
+          :to="{
+            name: 'service-create',
+            params: {
+              category_id: serviceCategory.id,
+            },
+          }"
+          >Add new service
+        </router-link>
+
         <div
           v-if="
             result.allServices.filter(
@@ -41,16 +51,7 @@
           "
         >
           <h1>Services:</h1>
-          |
-          <router-link
-            :to="{
-              name: 'service-create',
-              params: {
-                category_id: serviceCategory.id,
-              },
-            }"
-            >Add new service
-          </router-link>
+
           <div
             v-for="service in result.allServices.filter(
               (e) => e.serviceCategoryId == serviceCategory.id
