@@ -1,10 +1,24 @@
 <template>
   <div>
-    <div v-if="result.allServiceCategories.length > 0">
-      <h1>Service Categories</h1>
+    <span>
       <router-link to="/service-category-create"
         >Create a service category</router-link
       >
+      |
+      <router-link
+        :to="{
+          name: 'service-create',
+          params: {
+            category_id: serviceCategory.id,
+          },
+        }"
+        >Add new service
+      </router-link></span
+    >
+
+    <div v-if="result.allServiceCategories.length > 0">
+      <h1>Service Categories</h1>
+
       <div
         v-for="serviceCategory in result.allServiceCategories"
         :key="serviceCategory.id"
@@ -37,15 +51,7 @@
           "
         >
           <h1>Services:</h1>
-          <router-link
-            :to="{
-              name: 'service-create',
-              params: {
-                category_id: serviceCategory.id,
-              },
-            }"
-            >Add new service
-          </router-link>
+
           <div
             v-for="service in result.allServices.filter(
               (e) => e.serviceCategoryId == serviceCategory.id
