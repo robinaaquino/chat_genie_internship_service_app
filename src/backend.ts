@@ -3,8 +3,9 @@ import { Cloudinary } from "@cloudinary/url-gen";
 
 const httpLink = new HttpLink({
   uri: process.env.VUE_APP_URI,
-  fetchOptions: {
-    credentials: "include",
+  credentials: "include",
+  headers: {
+    "Content-Type": "application/graphql",
   },
 });
 
