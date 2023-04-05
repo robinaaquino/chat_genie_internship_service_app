@@ -49,7 +49,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "service-category-create",
     component: ServiceCategoryCreate,
     beforeEnter(routeTo, routeFrom, next) {
-      if (store.state.user.token == "admin") {
+      if (store.state.user.role == "admin") {
         next();
       } else {
         next({ name: "home" });
