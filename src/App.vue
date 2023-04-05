@@ -2,9 +2,49 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+    <span v-if="!user.role">
+      | <router-link to="/login">Login</router-link> |
+      <router-link to="/signup">Signup</router-link>
+    </span>
+
+    <span v-if="user.role">
+      |
+      <a href="" @click="logoutUser()">Logout</a>
+    </span>
+
+    <p>Role: {{ user.role }}</p>
+    <p>Token: {{ user.token }}</p>
   </nav>
   <router-view />
 </template>
+
+<script>
+import { mapState } from "vuex";
+import { LOGOUT_USER } from "./graphql-operations";
+import { useMutation } from "@vue/apollo-composable";
+import store from "@/store";
+import router from "@/router";
+
+export default {
+  setup() {
+    const { mutate: logoutUser, onDone } = useMutation(LOGOUT_USER);
+
+    onDone((result) => {
+      store.dispatch("clearUser");
+      router.push({
+        name: "home",
+      });
+    });
+
+    return {
+      logoutUser,
+    };
+  },
+  computed: {
+    ...mapState(["user"]),
+  },
+};
+</script>
 
 <style>
 #app {
