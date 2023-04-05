@@ -58,3 +58,85 @@ export const LOGOUT_USER = gql`
     }
   }
 `;
+
+export const CREATE_SERVICE_CATEGORY = gql`
+  mutation CreateServiceCategory(
+    $name: String!
+    $description: String!
+    $image: String!
+  ) {
+    createServiceCategory(
+      input: { name: $name, description: $description, image: $image }
+    ) {
+      clientMutationId
+      errors
+      serviceCategory {
+        createdAt
+        description
+        id
+        image
+        name
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const UPDATE_SERVICE_CATEGORY = gql`
+  mutation UpdateServiceCategory(
+    $id: ID!
+    $name: String!
+    $description: String!
+    $image: String!
+  ) {
+    updateServiceCategory(
+      input: { id: $id, name: $name, description: $description, image: $image }
+    ) {
+      clientMutationId
+      errors
+      serviceCategory {
+        createdAt
+        description
+        id
+        image
+        name
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const DELETE_SERVICE_CATEGORY = gql`
+  mutation DeleteServiceCategory($id: ID!) {
+    deleteServiceCategory(input: { id: $id }) {
+      clientMutationId
+      errors
+    }
+  }
+`;
+
+export const GET_ALL_SERVICE_CATEGORIES = gql`
+  query AllServiceCategories {
+    allServiceCategories {
+      createdAt
+      description
+      id
+      image
+      name
+      updatedAt
+    }
+  }
+`;
+
+export const GET_SERVICE_CATEGORY = gql`
+  query ServiceCategoryFindById($id: ID!) {
+    serviceCategoryFindById(id: $id) {
+      createdAt
+      description
+      id
+      image
+      name
+      updatedAt
+    }
+  }
+`;

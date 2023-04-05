@@ -44,7 +44,6 @@ export default {
     });
 
     onDone((result) => {
-      console.log(result);
       store.dispatch("setUser", {
         token: result.data.signinUser.token,
         role: result.data.signinUser.user.role,

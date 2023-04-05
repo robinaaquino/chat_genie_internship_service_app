@@ -7,6 +7,14 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
     field :all_users, [Types::UserType], null: false, description: "Return all users"
+    field :user_find_by_id, Types::UserType, "Find user by ID" do
+      argument :id, ID
+    end
+
+    field :all_service_categories, [Types::ServiceCategoryType], null: false, description: "Return all service categories"
+    field :service_category_find_by_id, Types::ServiceCategoryType, "Find service category by ID" do
+      argument :id, ID
+    end
 
     # TODO: remove me
     field :test_field, String, null: false,
@@ -17,6 +25,18 @@ module Types
 
     def all_users
       User.all
+    end
+
+    def user_find_by_id(id:)
+      User.find(id)
+    end
+
+    def all_service_categories
+      ServiceCategory.all
+    end
+
+    def service_category_find_by_id(id:)
+      ServiceCategory.find(id)
     end
   end
 end

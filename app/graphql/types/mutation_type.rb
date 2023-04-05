@@ -4,8 +4,9 @@ module Types
     field :logout_user, mutation: Mutations::LogOutUser
     field :create_customer_user, mutation: Mutations::CreateCustomerUser
     field :create_admin_user, mutation: Mutations::CreateAdminUser
-    # TODO: remove me
     field :create_service_category, mutation: Mutations::CreateServiceCategory
+    field :update_service_category, mutation: Mutations::UpdateServiceCategory
+    field :delete_service_category, mutation: Mutations::DeleteServiceCategory
     field :get_current_user, mutation: Mutations::GetCurrentUser
 
     field :test_field, String, null: false,

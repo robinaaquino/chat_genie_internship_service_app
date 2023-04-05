@@ -8,8 +8,15 @@
     </span>
 
     <span v-if="user.role">
-      |
-      <a href="" @click="logoutUser()">Logout</a>
+      | <router-link to="/service">Service</router-link>
+      <span v-if="user.role == 'admin'">
+        |
+        <router-link to="/service-category-create"
+          >Service Category Create</router-link
+        ></span
+      >
+
+      | <a href="" @click="logoutUser()">Logout</a>
     </span>
 
     <p>Role: {{ user.role }}</p>

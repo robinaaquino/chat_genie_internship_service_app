@@ -1,5 +1,6 @@
 module Mutations
-  class CreateServiceCategory < BaseMutation
+  class UpdateServiceCategory < BaseMutation
+    argument :id, ID, required: true
     argument :name, String, required: true
     argument :description, String, required: true
     argument :image, String, required: true
@@ -7,12 +8,12 @@ module Mutations
     field :service_category, Types::ServiceCategoryType, null: true
     field :errors, [String], null: false
 
-    def resolve(name: nil, description: nil, image: nil)
-      category = ServiceCategory.new(name: name,
-        description: description,
-        image: image)
-      if category.save
-        return {
+    def resolve(id:, **args)
+
+      category = ServiceCategory.find(id)
+
+      if(category.update(args))
+        {
           service_category: category,
           errors: []
         }
@@ -22,6 +23,7 @@ module Mutations
           errors: category.errors.full_messages
         }
       end
+
     end
   end
 end

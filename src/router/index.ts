@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import SignupView from "../views/SignupView.vue";
 import ServiceView from "../views/ServiceView.vue";
+import ServiceCategoryCreate from "@/views/ServiceCategoryCreate.vue";
 import store from "@/store";
 
 const routes: Array<RouteRecordRaw> = [
@@ -22,7 +23,6 @@ const routes: Array<RouteRecordRaw> = [
     name: "login",
     component: LoginView,
     beforeEnter() {
-      console.log(store.state.user.token);
       if (store.state.user.token != "") {
         return false;
       }
@@ -42,9 +42,16 @@ const routes: Array<RouteRecordRaw> = [
     path: "/service",
     name: "service",
     component: ServiceView,
+  },
+  {
+    path: "/service-category-create",
+    name: "service-category-create",
+    component: ServiceCategoryCreate,
     beforeEnter(routeTo, routeFrom, next) {
       if (store.state.user.token == "") {
         next({ name: "home" });
+      } else {
+        next();
       }
     },
   },
