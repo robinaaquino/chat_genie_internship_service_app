@@ -23,10 +23,7 @@
 <script>
 import { ref } from "vue";
 import { useMutation } from "@vue/apollo-composable";
-import {
-  CREATE_SERVICE,
-  GET_ALL_SERVICE_CATEGORIES,
-} from "../graphql-operations";
+import { CREATE_SERVICE, GET_ALL } from "../graphql-operations";
 import router from "@/router";
 
 export default {
@@ -49,7 +46,7 @@ export default {
         description: description.value,
         image: image.value,
       },
-      refetchQueries: [{ query: GET_ALL_SERVICE_CATEGORIES }],
+      refetchQueries: [{ query: GET_ALL }],
     }));
 
     onError((e) => {
@@ -89,4 +86,28 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+label {
+  padding: auto;
+  margin: auto;
+}
+
+button {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+</style>

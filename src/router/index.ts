@@ -6,10 +6,12 @@ import ServiceView from "../views/ServiceView.vue";
 import ServiceCategoryCreate from "@/views/ServiceCategoryCreate.vue";
 import ServiceCreate from "@/views/ServiceCreate.vue";
 import ServiceCategoryEdit from "@/views/ServiceCategoryEdit.vue";
-import ServiceShow from "@/views/ServiceShow.vue";
+import ServiceEdit from "@/views/ServiceEdit.vue";
+import DateCreate from "@/views/DateCreate.vue";
+import TimeslotCreate from "@/views/TimeslotCreate.vue";
+import TimeslotUpdate from "@/views/TimeslotUpdate.vue";
+import ServicesList from "@/views/ServicesList.vue";
 import store from "@/store";
-import { GET_SERVICE } from "@/graphql-operations";
-import { useQuery } from "@vue/apollo-composable";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -49,9 +51,32 @@ const routes: Array<RouteRecordRaw> = [
     component: ServiceView,
   },
   {
-    path: "/service-show/:id/:category_id",
-    name: "service-show",
-    component: ServiceShow,
+    path: "/services-list",
+    name: "services-list",
+    component: ServicesList,
+  },
+  {
+    path: "/service-edit/:id/:category_id",
+    name: "service-edit",
+    component: ServiceEdit,
+    props: true,
+  },
+  {
+    path: "/date-create/:id",
+    name: "date-create",
+    component: DateCreate,
+    props: true,
+  },
+  {
+    path: "/timeslot-create/:id",
+    name: "timeslot-create",
+    component: TimeslotCreate,
+    props: true,
+  },
+  {
+    path: "/timeslot-update/:id",
+    name: "timeslot-update",
+    component: TimeslotUpdate,
     props: true,
   },
   {
@@ -67,7 +92,7 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: "/service-create/:id",
+    path: "/service-create/:category_id",
     name: "service-create",
     component: ServiceCreate,
     props: true,

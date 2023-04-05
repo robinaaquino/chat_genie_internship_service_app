@@ -14,6 +14,12 @@ module Types
     field :update_service, mutation: Mutations::UpdateService
     field :delete_service, mutation: Mutations::DeleteService
 
+    field :create_date, mutation: Mutations::CreateDate
+    field :delete_date, mutation: Mutations::DeleteDate
+
+    field :create_timeslot, mutation: Mutations::CreateTimeslot
+    field :delete_timeslot, mutation: Mutations::DeleteTimeslot
+    field :update_timeslot, mutation: Mutations::UpdateTimeslot
 
     field :test_field, String, null: false,
       description: "An example field added by the generator"

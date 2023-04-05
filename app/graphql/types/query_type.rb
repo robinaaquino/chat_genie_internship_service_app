@@ -21,6 +21,17 @@ module Types
       argument :id, ID
     end
 
+    field :all_dates_given_service, [Types::ServiceDateType], "Return all dates for a given service" do
+      argument :service_id, ID
+    end
+
+    field :all_timeslots_given_service, [Types::ServiceTimeslotType], "Return all timeslots for a given service" do
+      argument :service_id, ID
+    end
+
+    field :all_dates, [Types::ServiceDateType], null: false, description: "Return all dates"
+    field :all_timeslots, [Types::ServiceTimeslotType], null: false, description: "Return all timeslots"
+
     # TODO: remove me
     field :test_field, String, null: false,
       description: "An example field added by the generator"
@@ -50,6 +61,22 @@ module Types
 
     def service_find_by_id(id:)
       Service.find(id)
+    end
+
+    def all_dates_given_service(service_id:)
+      ServiceDate.where(service_id: service_id)
+    end
+
+    def all_timeslots_given_service(service_id:)
+      ServiceTimeslot.where(service_id: service_id)
+    end
+
+    def all_dates
+      ServiceDate.all
+    end
+
+    def all_timeslots
+      ServiceTimeslot.all
     end
   end
 end

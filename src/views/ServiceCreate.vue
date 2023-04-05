@@ -28,13 +28,13 @@
 <script>
 import { ref } from "vue";
 import { useMutation, useQuery } from "@vue/apollo-composable";
-import { CREATE_SERVICE } from "../graphql-operations";
+import { CREATE_SERVICE, GET_ALL } from "../graphql-operations";
 import router from "@/router";
 import { useRoute } from "vue-router";
 
 export default {
   props: {
-    id: {
+    category_id: {
       type: String,
       required: true,
     },
@@ -59,8 +59,9 @@ export default {
         image: image.value,
         price: price.value,
         addOn: addOn.value,
-        serviceCategoryId: route.params.id,
+        serviceCategoryId: route.params.category_id,
       },
+      refetchQueries: [{ query: GET_ALL }],
     }));
 
     onError((e) => {
@@ -105,4 +106,28 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+label {
+  padding: auto;
+  margin: auto;
+}
+
+button {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+</style>

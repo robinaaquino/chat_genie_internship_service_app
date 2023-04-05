@@ -267,7 +267,7 @@ export const GET_SERVICE = gql`
   }
 `;
 
-export const GET_ALL_SERVICES_AND_CATEGORIES = gql`
+export const GET_ALL = gql`
   query AllServices {
     allServices {
       addOn
@@ -286,6 +286,227 @@ export const GET_ALL_SERVICES_AND_CATEGORIES = gql`
       id
       image
       name
+      updatedAt
+    }
+    allDates {
+      createdAt
+      date
+      id
+      serviceId
+      updatedAt
+    }
+    allTimeslots {
+      createdAt
+      id
+      serviceId
+      slots
+      time
+      updatedAt
+    }
+  }
+`;
+
+export const CREATE_DATE = gql`
+  mutation CreateDate($date: String!, $serviceId: ID!) {
+    createDate(input: { date: $date, serviceId: $serviceId }) {
+      clientMutationId
+      errors
+      serviceDate {
+        createdAt
+        date
+        id
+        serviceId
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const CREATE_TIMESLOT = gql`
+  mutation CreateTimeslot($time: String!, $slots: Int!, $serviceId: ID!) {
+    createTimeslot(
+      input: { time: $time, slots: $slots, serviceId: $serviceId }
+    ) {
+      clientMutationId
+      errors
+      serviceTimeslot {
+        createdAt
+        id
+        serviceId
+        slots
+        time
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const UPDATE_TIMESLOT = gql`
+  mutation UpdateTimeslot($id: ID!, $slots: Int!) {
+    updateTimeslot(input: { id: $id, slots: $slots }) {
+      clientMutationId
+      errors
+      serviceTimeslot {
+        createdAt
+        id
+        serviceId
+        slots
+        time
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const DELETE_DATE = gql`
+  mutation DeleteDate($id: ID!) {
+    deleteDate(input: { id: $id }) {
+      clientMutationId
+      errors
+      serviceDate {
+        createdAt
+        id
+        serviceId
+        slots
+        time
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const DELETE_TIMESLOT = gql`
+  mutation DeleteTimeslot($id: ID!) {
+    deleteTimeslot(input: { id: $id }) {
+      clientMutationId
+      errors
+      serviceTimeslot {
+        createdAt
+        date
+        id
+        serviceId
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const GET_DATES_GIVEN_SERVICE = gql`
+  query AllDatesGivenService($serviceId: ID!) {
+    allDatesGivenService(serviceId: $serviceId) {
+      createdAt
+      date
+      id
+      serviceId
+      updatedAt
+    }
+  }
+`;
+
+export const GET_TIMESLOTS_GIVEN_SERVICE = gql`
+  query AllTimeslotsGivenService($serviceId: ID!) {
+    allTimeslotsGivenService(serviceId: $serviceId) {
+      createdAt
+      id
+      serviceId
+      slots
+      time
+      updatedAt
+    }
+  }
+`;
+
+export const GET_DATES_AND_TIMESLOTS_GIVEN_SERVICE = gql`
+  query GetDatesAndTimeslotsGivenService($serviceId: ID!) {
+    allTimeslotsGivenService(serviceId: $serviceId) {
+      createdAt
+      id
+      serviceId
+      slots
+      time
+      updatedAt
+    }
+    allDatesGivenService(serviceId: $serviceId) {
+      createdAt
+      date
+      id
+      serviceId
+      updatedAt
+    }
+  }
+`;
+
+export const ALL_TIMESLOTS = gql`
+  query AllTimeslots {
+    allTimeslots {
+      createdAt
+      id
+      serviceId
+      slots
+      time
+      updatedAt
+    }
+  }
+`;
+
+export const ALL_DATES = gql`
+  query AllDates {
+    allDates {
+      createdAt
+      date
+      id
+      serviceId
+      updatedAt
+    }
+  }
+`;
+
+export const ALL_DATES_AND_TIMESLOTS = gql`
+  query AllDatesAndTimeslots {
+    allDates {
+      createdAt
+      date
+      id
+      serviceId
+      updatedAt
+    }
+    allTimeslots {
+      createdAt
+      id
+      serviceId
+      slots
+      time
+      updatedAt
+    }
+  }
+`;
+
+export const ALL_SERVICES_DATES_AND_TIMESLOTS = gql`
+  query AllServicesDatesAndTimeSlots {
+    allDates {
+      createdAt
+      date
+      id
+      serviceId
+      updatedAt
+    }
+    allTimeslots {
+      createdAt
+      id
+      serviceId
+      slots
+      time
+      updatedAt
+    }
+    allServices {
+      addOn
+      createdAt
+      details
+      id
+      image
+      price
+      serviceCategoryId
+      storeDetails
       updatedAt
     }
   }
