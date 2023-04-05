@@ -3,12 +3,9 @@ import { Cloudinary } from "@cloudinary/url-gen";
 
 const httpLink = new HttpLink({
   uri: process.env.VUE_APP_URI,
-  headers: {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Credentials": "true",
+  fetchOptions: {
+    credentials: "include",
   },
-  fetch,
 });
 
 export const apolloClient = new ApolloClient({
