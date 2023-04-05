@@ -39,11 +39,13 @@ export default {
       },
     }));
 
-    onError(() => {
+    onError((e) => {
+      console.log(e);
       error.value = "Error during login";
     });
 
     onDone((result) => {
+      console.log(result);
       store.dispatch("setUser", {
         token: result.data.signinUser.token,
         role: result.data.signinUser.user.role,
