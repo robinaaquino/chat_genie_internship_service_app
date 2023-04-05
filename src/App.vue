@@ -1,19 +1,15 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Services List</router-link> |
     <span v-if="!user.role">
       | <router-link to="/login">Login</router-link> |
       <router-link to="/signup">Signup</router-link>
     </span>
 
     <span v-if="user.role">
-      | <router-link to="/service">Service</router-link>
       <span v-if="user.role == 'admin'">
         |
-        <router-link to="/service-category-create"
-          >Service Category Create</router-link
-        >
+        <router-link to="/booking-list">Booking List</router-link>
       </span>
 
       | <a href="" @click="logoutUser()">Logout</a>

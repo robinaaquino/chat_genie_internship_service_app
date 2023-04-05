@@ -55,7 +55,7 @@ export default {
 
     onDone((result) => {
       router.push({
-        name: "service",
+        name: "home",
       });
       name.value = "";
       description.value = "";

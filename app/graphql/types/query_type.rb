@@ -32,6 +32,8 @@ module Types
     field :all_dates, [Types::ServiceDateType], null: false, description: "Return all dates"
     field :all_timeslots, [Types::ServiceTimeslotType], null: false, description: "Return all timeslots"
 
+    field :all_bookings, [Types::BookingType], null: false, description: "Return all bookings"
+
     # TODO: remove me
     field :test_field, String, null: false,
       description: "An example field added by the generator"
@@ -77,6 +79,10 @@ module Types
 
     def all_timeslots
       ServiceTimeslot.all
+    end
+
+    def all_bookings
+      Booking.all
     end
   end
 end

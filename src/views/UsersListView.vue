@@ -4,9 +4,8 @@
     <p v-if="error">Something went wrong...</p>
     <p v-if="loading">Loading...</p>
     <div v-else v-for="user in result.allUsers" :key="user.id">
-      <p>Id: {{ user.id }}</p>
+      <p>ID: {{ user.id }}</p>
       <p>Name: {{ user.name }}</p>
-      <p>Email: {{ user.email }}</p>
       <br />
     </div>
     <div></div>

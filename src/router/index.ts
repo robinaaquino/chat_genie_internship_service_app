@@ -11,20 +11,11 @@ import DateCreate from "@/views/DateCreate.vue";
 import TimeslotCreate from "@/views/TimeslotCreate.vue";
 import TimeslotUpdate from "@/views/TimeslotUpdate.vue";
 import ServicesList from "@/views/ServicesList.vue";
+import BookingList from "@/views/BookingList.vue";
+import UsersListView from "@/views/UsersListView.vue";
 import store from "@/store";
 
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: "/",
-    name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/about",
-    name: "about",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  },
   {
     path: "/login",
     name: "login",
@@ -47,12 +38,12 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/service",
-    name: "service",
+    name: "home",
     component: ServiceView,
   },
   {
-    path: "/services-list",
-    name: "services-list",
+    path: "/",
+    name: "home",
     component: ServicesList,
   },
   {
@@ -60,24 +51,78 @@ const routes: Array<RouteRecordRaw> = [
     name: "service-edit",
     component: ServiceEdit,
     props: true,
+    beforeEnter(routeTo, routeFrom, next) {
+      if (store.state.user.role == "admin") {
+        next();
+      } else {
+        next({ name: "home" });
+      }
+    },
+  },
+  {
+    path: "/users-list",
+    name: "users-list",
+    component: UsersListView,
+    props: true,
+    beforeEnter(routeTo, routeFrom, next) {
+      if (store.state.user.role == "admin") {
+        next();
+      } else {
+        next({ name: "home" });
+      }
+    },
   },
   {
     path: "/date-create/:id",
     name: "date-create",
     component: DateCreate,
     props: true,
+    beforeEnter(routeTo, routeFrom, next) {
+      if (store.state.user.role == "admin") {
+        next();
+      } else {
+        next({ name: "home" });
+      }
+    },
   },
   {
     path: "/timeslot-create/:id",
     name: "timeslot-create",
     component: TimeslotCreate,
     props: true,
+    beforeEnter(routeTo, routeFrom, next) {
+      if (store.state.user.role == "admin") {
+        next();
+      } else {
+        next({ name: "home" });
+      }
+    },
   },
   {
     path: "/timeslot-update/:id",
     name: "timeslot-update",
     component: TimeslotUpdate,
     props: true,
+    beforeEnter(routeTo, routeFrom, next) {
+      if (store.state.user.role == "admin") {
+        next();
+      } else {
+        next({ name: "home" });
+      }
+    },
+  },
+  {
+    path: "/booking-list",
+    name: "booking-list",
+    component: BookingList,
+    props: true,
+    beforeEnter(routeTo, routeFrom, next) {
+      if (store.state.user.role == "admin") {
+        next();
+      } else {
+        next({ name: "home" });
+      }
+    },
   },
   {
     path: "/service-category-create",

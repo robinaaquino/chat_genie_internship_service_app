@@ -4,6 +4,7 @@ import store from "./store";
 import { createApp, provide, h } from "vue";
 import { DefaultApolloClient } from "@vue/apollo-composable";
 import { apolloClient } from "./backend";
+import { plugin, defaultConfig } from "@formkit/vue";
 
 const app = createApp({
   setup() {
@@ -12,4 +13,4 @@ const app = createApp({
   render: () => h(App),
 });
 
-app.use(store).use(router).mount("#app");
+app.use(plugin, defaultConfig).use(store).use(router).mount("#app");

@@ -511,3 +511,80 @@ export const ALL_SERVICES_DATES_AND_TIMESLOTS = gql`
     }
   }
 `;
+
+export const ALL_BOOKINGS = gql`
+  query AllBookings {
+    allBookings {
+      amount
+      bookingDate
+      createdAt
+      date
+      id
+      nameOfCustomer
+      serviceId
+      status
+      time
+      updatedAt
+    }
+  }
+`;
+
+export const ADD_BOOKING = gql`
+  mutation CreateBooking(
+    $bookingDate: String!
+    $nameOfCustomer: String!
+    $serviceId: ID!
+    $amount: Int!
+    $status: String!
+    $date: String!
+    $time: String!
+  ) {
+    createBooking(
+      input: {
+        bookingDate: $bookingDate
+        nameOfCustomer: $nameOfCustomer
+        serviceId: $serviceId
+        amount: $amount
+        status: $status
+        date: $date
+        time: $time
+      }
+    ) {
+      clientMutationId
+      errors
+      booking {
+        amount
+        bookingDate
+        createdAt
+        date
+        id
+        nameOfCustomer
+        serviceId
+        status
+        time
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const UPDATE_BOOKING = gql`
+  mutation UpdateBooking($id: ID!, $status: String!) {
+    updateBooking(input: { id: $id, status: $status }) {
+      clientMutationId
+      errors
+      booking {
+        amount
+        bookingDate
+        createdAt
+        date
+        id
+        nameOfCustomer
+        serviceId
+        status
+        time
+        updatedAt
+      }
+    }
+  }
+`;

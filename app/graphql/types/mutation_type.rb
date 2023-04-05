@@ -21,6 +21,9 @@ module Types
     field :delete_timeslot, mutation: Mutations::DeleteTimeslot
     field :update_timeslot, mutation: Mutations::UpdateTimeslot
 
+    field :create_booking, mutation: Mutations::CreateBooking
+    field :update_booking, mutation: Mutations::UpdateBooking
+
     field :test_field, String, null: false,
       description: "An example field added by the generator"
     def test_field

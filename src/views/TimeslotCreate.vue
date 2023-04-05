@@ -56,7 +56,7 @@ export default {
     onDone((result) => {
       console.log("ondone " + result);
       router.push({
-        name: "service",
+        name: "home",
       });
       time.value = "";
       slots.value = "";

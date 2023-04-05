@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_111425) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_05_151825) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_111425) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "booking_date"
+    t.string "name_of_customer"
+    t.bigint "service_id", null: false
+    t.integer "amount"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "date"
+    t.string "time"
+    t.index ["service_id"], name: "index_bookings_on_service_id"
   end
 
   create_table "service_categories", force: :cascade do |t|
@@ -89,6 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_111425) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "services"
   add_foreign_key "service_dates", "services"
   add_foreign_key "service_timeslots", "services"
   add_foreign_key "services", "service_categories"
