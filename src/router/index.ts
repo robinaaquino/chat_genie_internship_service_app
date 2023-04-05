@@ -37,7 +37,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/service",
-    name: "home",
+    name: "service-admin",
     component: ServiceView,
   },
   {
