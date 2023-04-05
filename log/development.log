@@ -17978,3 +17978,17 @@ Processing by GraphqlController#execute as */*
 Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 2395)
 
 
+Started POST "/graphql" for ::1 at 2023-04-05 13:17:40 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 2395)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:17:43 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 2397)
+
+

@@ -6,6 +6,14 @@
       :key="serviceCategory.id"
     >
       <h1>Service Category: {{ serviceCategory.name }}</h1>
+      <router-link
+        v-if="user.role === 'admin'"
+        :to="{
+          name: 'service-category-edit',
+          params: { id: serviceCategory.id },
+        }"
+        >Edit category
+      </router-link>
       <h2>Description: {{ serviceCategory.description }}</h2>
       <img :src="serviceCategory.image" alt="" height="150" width="150" />
     </div>
@@ -15,6 +23,7 @@
 <script>
 import { GET_ALL_SERVICE_CATEGORIES } from "../graphql-operations";
 import { useQuery } from "@vue/apollo-composable";
+import { mapState } from "vuex";
 
 export default {
   setup() {
@@ -27,6 +36,9 @@ export default {
       loading,
       error,
     };
+  },
+  computed: {
+    ...mapState(["user"]),
   },
 };
 </script>

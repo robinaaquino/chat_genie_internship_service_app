@@ -4,6 +4,7 @@ import LoginView from "../views/LoginView.vue";
 import SignupView from "../views/SignupView.vue";
 import ServiceView from "../views/ServiceView.vue";
 import ServiceCategoryCreate from "@/views/ServiceCategoryCreate.vue";
+import ServiceCategoryEdit from "@/views/ServiceCategoryEdit.vue";
 import store from "@/store";
 
 const routes: Array<RouteRecordRaw> = [
@@ -48,10 +49,24 @@ const routes: Array<RouteRecordRaw> = [
     name: "service-category-create",
     component: ServiceCategoryCreate,
     beforeEnter(routeTo, routeFrom, next) {
-      if (store.state.user.token == "") {
-        next({ name: "home" });
-      } else {
+      if (store.state.user.token == "admin") {
         next();
+      } else {
+        next({ name: "home" });
+      }
+    },
+  },
+  {
+    path: "/service-category-edit/:id",
+    name: "service-category-edit",
+    component: ServiceCategoryEdit,
+    props: true,
+    beforeEnter(routeTo, routeFrom, next) {
+      console.log(routeTo.params);
+      if (store.state.user.role == "admin") {
+        next();
+      } else {
+        next({ name: "home" });
       }
     },
   },
