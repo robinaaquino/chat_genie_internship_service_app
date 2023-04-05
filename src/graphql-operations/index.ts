@@ -140,3 +140,153 @@ export const GET_SERVICE_CATEGORY = gql`
     }
   }
 `;
+
+export const CREATE_SERVICE = gql`
+  mutation CreateService(
+    $details: String!
+    $storeDetails: String!
+    $price: Int!
+    $addOn: String!
+    $image: String!
+    $serviceCategoryId: ID!
+  ) {
+    createService(
+      input: {
+        details: $details
+        storeDetails: $storeDetails
+        price: $price
+        addOn: $addOn
+        image: $image
+        serviceCategoryId: $serviceCategoryId
+      }
+    ) {
+      clientMutationId
+      errors
+      service {
+        addOn
+        createdAt
+        details
+        id
+        image
+        price
+        serviceCategoryId
+        storeDetails
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const UPDATE_SERVICE = gql`
+  mutation UpdateService(
+    $id: ID!
+    $details: String!
+    $storeDetails: String!
+    $price: Int!
+    $addOn: String!
+    $image: String!
+    $serviceCategoryId: ID!
+  ) {
+    updateService(
+      input: {
+        id: $id
+        details: $details
+        storeDetails: $storeDetails
+        price: $price
+        addOn: $addOn
+        image: $image
+        serviceCategoryId: $serviceCategoryId
+      }
+    ) {
+      clientMutationId
+      errors
+      service {
+        addOn
+        createdAt
+        details
+        id
+        image
+        price
+        serviceCategoryId
+        storeDetails
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const DELETE_SERVICE = gql`
+  mutation DeleteService($id: ID!) {
+    deleteService(input: { id: $id }) {
+      clientMutationId
+      errors
+      service {
+        addOn
+        createdAt
+        details
+        id
+        image
+        price
+        serviceCategoryId
+        storeDetails
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const GET_ALL_SERVICES = gql`
+  query AllServices {
+    allServices {
+      addOn
+      createdAt
+      details
+      id
+      image
+      price
+      serviceCategoryId
+      storeDetails
+      updatedAt
+    }
+  }
+`;
+
+export const GET_SERVICE = gql`
+  query AllServices($id: ID!) {
+    serviceFindById(id: $id) {
+      addOn
+      createdAt
+      details
+      id
+      image
+      price
+      serviceCategoryId
+      storeDetails
+      updatedAt
+    }
+  }
+`;
+
+export const GET_ALL_SERVICES_AND_CATEGORIES = gql`
+  query AllServices {
+    allServices {
+      addOn
+      createdAt
+      details
+      id
+      image
+      price
+      serviceCategoryId
+      storeDetails
+      updatedAt
+    }
+    allServiceCategories {
+      createdAt
+      description
+      id
+      image
+      name
+      updatedAt
+    }
+  }
+`;

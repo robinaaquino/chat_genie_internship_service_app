@@ -23,7 +23,7 @@ import { ref } from "vue";
 import { useMutation } from "@vue/apollo-composable";
 import {
   UPDATE_SERVICE_CATEGORY,
-  GET_ALL_SERVICE_CATEGORIES,
+  GET_ALL_SERVICES_AND_CATEGORIES,
 } from "../graphql-operations";
 import router from "@/router";
 import { useRoute } from "vue-router";
@@ -53,7 +53,7 @@ export default {
         description: description.value,
         image: image.value,
       },
-      refetchQueries: [{ query: GET_ALL_SERVICE_CATEGORIES }],
+      refetchQueries: [{ query: GET_ALL_SERVICES_AND_CATEGORIES }],
     }));
 
     onError((e) => {
@@ -79,16 +79,14 @@ export default {
   },
   methods: {
     openUploadModal() {
-      window.cloudinary
-        .openUploadWidget(
-          { cloud_name: "dsc75sbwu", upload_preset: "d47ddnz9" },
-          (error, result) => {
-            if (!error && result && result.event === "success") {
-              this.image = result.info.url;
-            }
+      window.cloudinary.openUploadWidget(
+        { cloud_name: "dsc75sbwu", upload_preset: "d47ddnz9" },
+        (error, result) => {
+          if (!error && result && result.event === "success") {
+            this.image = result.info.url;
           }
-        )
-        .open();
+        }
+      );
     },
   },
 };

@@ -19045,3 +19045,1137 @@ Migrating to RemoveServiceFromServiceCategory (20230405072601)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6449201451464260650)[0m
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:26:38 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}, "graphql"=>{"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:9:in `resolve'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mServiceDate Load (0.2ms)[0m  [1m[34mSELECT "service_dates".* FROM "service_dates" WHERE "service_dates"."service_id" = $1[0m  [["service_id", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+PG::UndefinedColumn: ERROR:  column service_categories.service_id does not exist
+LINE 1: ...ice_categories".* FROM "service_categories" WHERE "service_c...
+                                                             ^
+
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `prepare'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `block in prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:832:in `prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:778:in `exec_cache'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:747:in `execute_and_clear'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql/database_statements.rb:54:in `exec_query'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:560:in `select'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:66:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `block in select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:137:in `block in cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:128:in `cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:54:in `_query_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:50:in `find_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/statement_cache.rb:150:in `execute'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/association.rb:232:in `find_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/collection_association.rb:264:in `load_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/has_many_association.rb:27:in `handle_dependency'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/builder/association.rb:141:in `block in add_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `instance_exec'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `block in make_lambda'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:687:in `block (2 levels) in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `catch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `block in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:200:in `block in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `block in invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `each'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:106:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:929:in `_run_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/callbacks.rb:439:in `destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `block in destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:316:in `transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `destroy'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:11:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `block (3 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:93:in `block (2 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:84:in `block in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:73:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/relay_classic_mutation.rb:58:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `block (2 levels) in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:817:in `with_extensions'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:665:in `block in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:663:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:511:in `block (3 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/tracing.rb:70:in `execute_field'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:510:in `block (2 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:851:in `call_method_on_directives'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:507:in `block in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:957:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:445:in `evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:439:in `block in evaluate_selection'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/member/has_arguments.rb:288:in `block (3 levels) in coerce_arguments'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:181:in `block in run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:306:in `block in spawn_fiber'
+Completed 500 Internal Server Error in 94ms (Views: 0.9ms | ActiveRecord: 7.4ms | Allocations: 30285)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:27:35 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}, "graphql"=>{"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:9:in `resolve'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mServiceDate Load (0.2ms)[0m  [1m[34mSELECT "service_dates".* FROM "service_dates" WHERE "service_dates"."service_id" = $1[0m  [["service_id", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+PG::UndefinedColumn: ERROR:  column service_categories.service_id does not exist
+LINE 1: ...ice_categories".* FROM "service_categories" WHERE "service_c...
+                                                             ^
+
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `prepare'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `block in prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:832:in `prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:778:in `exec_cache'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:747:in `execute_and_clear'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql/database_statements.rb:54:in `exec_query'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:560:in `select'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:66:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `block in select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:137:in `block in cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:128:in `cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:54:in `_query_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:50:in `find_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/statement_cache.rb:150:in `execute'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/association.rb:232:in `find_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/collection_association.rb:264:in `load_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/has_many_association.rb:27:in `handle_dependency'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/builder/association.rb:141:in `block in add_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `instance_exec'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `block in make_lambda'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:687:in `block (2 levels) in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `catch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `block in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:200:in `block in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `block in invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `each'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:106:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:929:in `_run_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/callbacks.rb:439:in `destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `block in destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:316:in `transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `destroy'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:11:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `block (3 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:93:in `block (2 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:84:in `block in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:73:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/relay_classic_mutation.rb:58:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `block (2 levels) in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:817:in `with_extensions'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:665:in `block in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:663:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:511:in `block (3 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/tracing.rb:70:in `execute_field'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:510:in `block (2 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:851:in `call_method_on_directives'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:507:in `block in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:957:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:445:in `evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:439:in `block in evaluate_selection'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/member/has_arguments.rb:288:in `block (3 levels) in coerce_arguments'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:181:in `block in run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:306:in `block in spawn_fiber'
+Completed 500 Internal Server Error in 155ms (Views: 0.7ms | ActiveRecord: 7.8ms | Allocations: 30300)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:32:44 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}, "graphql"=>{"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:9:in `resolve'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mServiceDate Load (0.3ms)[0m  [1m[34mSELECT "service_dates".* FROM "service_dates" WHERE "service_dates"."service_id" = $1[0m  [["service_id", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+PG::UndefinedColumn: ERROR:  column service_categories.service_id does not exist
+LINE 1: ...ice_categories".* FROM "service_categories" WHERE "service_c...
+                                                             ^
+
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `prepare'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `block in prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:832:in `prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:778:in `exec_cache'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:747:in `execute_and_clear'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql/database_statements.rb:54:in `exec_query'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:560:in `select'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:66:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `block in select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:137:in `block in cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:128:in `cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:54:in `_query_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:50:in `find_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/statement_cache.rb:150:in `execute'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/association.rb:232:in `find_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/collection_association.rb:264:in `load_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/has_many_association.rb:27:in `handle_dependency'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/builder/association.rb:141:in `block in add_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `instance_exec'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `block in make_lambda'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:687:in `block (2 levels) in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `catch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `block in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:200:in `block in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `block in invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `each'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:106:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:929:in `_run_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/callbacks.rb:439:in `destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `block in destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:316:in `transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `destroy'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:11:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `block (3 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:93:in `block (2 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:84:in `block in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:73:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/relay_classic_mutation.rb:58:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `block (2 levels) in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:817:in `with_extensions'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:665:in `block in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:663:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:511:in `block (3 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/tracing.rb:70:in `execute_field'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:510:in `block (2 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:851:in `call_method_on_directives'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:507:in `block in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:957:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:445:in `evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:439:in `block in evaluate_selection'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/member/has_arguments.rb:288:in `block (3 levels) in coerce_arguments'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:181:in `block in run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:306:in `block in spawn_fiber'
+Completed 500 Internal Server Error in 24ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 5072)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:33:47 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}, "graphql"=>{"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:9:in `resolve'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mService Destroy (2.0ms)[0m  [1m[31mDELETE FROM "services" WHERE "services"."id" = $1[0m  [["id", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+Completed 200 OK in 75ms (Views: 0.2ms | ActiveRecord: 7.6ms | Allocations: 25098)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:33:54 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"query AllServices {\r\n    allServices {\r\n        addOn\r\n        createdAt\r\n        details\r\n        id\r\n        image\r\n        price\r\n        serviceCategoryId\r\n        storeDetails\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServices", "variables"=>{}, "graphql"=>{"query"=>"query AllServices {\r\n    allServices {\r\n        addOn\r\n        createdAt\r\n        details\r\n        id\r\n        image\r\n        price\r\n        serviceCategoryId\r\n        storeDetails\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServices", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 2187)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 15:40:01 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 72ms (Views: 0.3ms | ActiveRecord: 7.9ms | Allocations: 5705)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 15:40:12 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 2043)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:41:57 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 52ms (Views: 6.9ms | ActiveRecord: 0.4ms | Allocations: 37776)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:41:57 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 55ms (Views: 7.2ms | ActiveRecord: 0.3ms | Allocations: 36968)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:44:27 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:44:27 +0800
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 58ms (Views: 7.4ms | ActiveRecord: 0.8ms | Allocations: 37121)
+
+
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 50ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 36968)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:44:28 +0800
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:44:28 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 51ms (Views: 6.9ms | ActiveRecord: 0.2ms | Allocations: 36987)
+
+
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 52ms (Views: 6.9ms | ActiveRecord: 0.3ms | Allocations: 36968)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 15:45:09 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1927)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:00:56 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 63ms (Views: 0.3ms | ActiveRecord: 7.6ms | Allocations: 4781)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6449201451464260650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6449201451464260650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/graphql" for ::1 at 2023-04-05 16:10:13 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 47ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 19503)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6449201451464260650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6449201451464260650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/graphql" for ::1 at 2023-04-05 16:24:08 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 111ms (Views: 0.3ms | ActiveRecord: 19.1ms | Allocations: 22260)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:24:20 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2075)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:24:56 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:25:55 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 187ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 2686)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:25:56 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1925)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:25:57 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (1.4ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 82ms (Views: 0.3ms | ActiveRecord: 10.1ms | Allocations: 8663)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:27:18 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2080)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:27:23 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 186ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2312)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:27:25 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 2553)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:30:49 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:30:56 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 181ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:30:57 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 2553)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:31:56 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"CreateService", "variables"=>{"details"=>"993", "storeDetails"=>"484", "image"=>"", "price"=>424, "addOn"=>"347", "serviceCategoryId"=>{"__typename"=>"ServiceCategory", "createdAt"=>"2023-04-05T04:56:57Z", "description"=>"Noelani Barton", "id"=>"4", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680670615/rot7zahlzzwmlufsai60.png", "name"=>"Maite Baldwin", "updatedAt"=>"2023-04-05T04:56:57Z"}}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"CreateService", "variables"=>{"details"=>"993", "storeDetails"=>"484", "image"=>"", "price"=>424, "addOn"=>"347", "serviceCategoryId"=>{"__typename"=>"ServiceCategory", "createdAt"=>"2023-04-05T04:56:57Z", "description"=>"Noelani Barton", "id"=>"4", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680670615/rot7zahlzzwmlufsai60.png", "name"=>"Maite Baldwin", "updatedAt"=>"2023-04-05T04:56:57Z"}}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1628)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:32:07 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"CreateService", "variables"=>{"details"=>"993", "storeDetails"=>"484", "image"=>"", "price"=>424, "addOn"=>"347", "serviceCategoryId"=>{"__typename"=>"ServiceCategory", "createdAt"=>"2023-04-05T04:56:57Z", "description"=>"Noelani Barton", "id"=>"4", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680670615/rot7zahlzzwmlufsai60.png", "name"=>"Maite Baldwin", "updatedAt"=>"2023-04-05T04:56:57Z"}}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"CreateService", "variables"=>{"details"=>"993", "storeDetails"=>"484", "image"=>"", "price"=>424, "addOn"=>"347", "serviceCategoryId"=>{"__typename"=>"ServiceCategory", "createdAt"=>"2023-04-05T04:56:57Z", "description"=>"Noelani Barton", "id"=>"4", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680670615/rot7zahlzzwmlufsai60.png", "name"=>"Maite Baldwin", "updatedAt"=>"2023-04-05T04:56:57Z"}}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1574)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:32:26 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"CreateService", "variables"=>{"details"=>"962", "storeDetails"=>"878", "image"=>"", "price"=>494, "addOn"=>"522", "serviceCategoryId"=>{"__typename"=>"ServiceCategory", "createdAt"=>"2023-04-05T04:58:16Z", "description"=>"Aristotle Ramirez", "id"=>"5", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680670694/tmu8gqmtj1hcweoetafc.png", "name"=>"Rina Wooten", "updatedAt"=>"2023-04-05T04:58:16Z"}}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"CreateService", "variables"=>{"details"=>"962", "storeDetails"=>"878", "image"=>"", "price"=>494, "addOn"=>"522", "serviceCategoryId"=>{"__typename"=>"ServiceCategory", "createdAt"=>"2023-04-05T04:58:16Z", "description"=>"Aristotle Ramirez", "id"=>"5", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680670694/tmu8gqmtj1hcweoetafc.png", "name"=>"Rina Wooten", "updatedAt"=>"2023-04-05T04:58:16Z"}}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1574)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:33:08 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1927)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:33:15 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 189ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2163)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:33:16 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 2555)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:34:48 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:34:48 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:35:58 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:35:58 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:36:24 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 184ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:36:27 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 2553)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:37:01 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 2553)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:37:01 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:37:31 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 190ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:37:31 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:40:23 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:40:23 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1925)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:40:43 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1926)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:40:43 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:43:31 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 188ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:44:21 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:44:21 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:44:35 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:44:35 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:44:48 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 206ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:46:02 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 2553)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:50:04 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:50:04 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:50:11 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 191ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:53:24 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:53:24 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:53:30 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 188ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:53:38 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 2553)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:59:35 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+Started POST "/graphql" for ::1 at 2023-04-05 16:59:35 +0800
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 83ms (Views: 0.4ms | ActiveRecord: 15.1ms | Allocations: 5385)
+
+
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:59:41 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 186ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 2190)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 16:59:43 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (1.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 2553)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:02:55 +0800
+Started POST "/graphql" for ::1 at 2023-04-05 17:02:55 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1936)
+
+
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:03:03 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 184ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:03:05 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 2553)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:09:33 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"CreateService", "variables"=>{"details"=>"", "storeDetails"=>"", "image"=>"", "price"=>"", "addOn"=>"", "serviceCategoryId"=>"4"}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"CreateService", "variables"=>{"details"=>"", "storeDetails"=>"", "image"=>"", "price"=>"", "addOn"=>"", "serviceCategoryId"=>"4"}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.2ms | Allocations: 1558)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:15:53 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"CreateService", "variables"=>{"details"=>"43", "storeDetails"=>"287", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680686151/q4sq17bma4po6kn1ysj5.jpg", "price"=>225, "addOn"=>"735", "serviceCategoryId"=>"4"}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"CreateService", "variables"=>{"details"=>"43", "storeDetails"=>"287", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680686151/q4sq17bma4po6kn1ysj5.jpg", "price"=>225, "addOn"=>"735", "serviceCategoryId"=>"4"}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.2ms | Allocations: 1558)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:16:21 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"CreateService", "variables"=>{"details"=>"589", "storeDetails"=>"56", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680686178/km2af9kxcmakjmjwplww.jpg", "price"=>201, "addOn"=>"225", "serviceCategoryId"=>"4"}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"CreateService", "variables"=>{"details"=>"589", "storeDetails"=>"56", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680686178/km2af9kxcmakjmjwplww.jpg", "price"=>201, "addOn"=>"225", "serviceCategoryId"=>"4"}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Integer!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.1ms | Allocations: 1558)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:17:02 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"CreateService", "variables"=>{"details"=>"70", "storeDetails"=>"595", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680686219/sl4sjkexwzprrsamfsyj.jpg", "price"=>558, "addOn"=>"130", "serviceCategoryId"=>"4"}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Int!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"CreateService", "variables"=>{"details"=>"70", "storeDetails"=>"595", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680686219/sl4sjkexwzprrsamfsyj.jpg", "price"=>558, "addOn"=>"130", "serviceCategoryId"=>"4"}, "query"=>"mutation CreateService($details: String!, $storeDetails: String!, $price: Int!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  createService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/create_service.rb:17:in `resolve'
+  [1m[36mService Create (2.8ms)[0m  [1m[32mINSERT INTO "services" ("details", "store_details", "price", "add_on", "created_at", "updated_at", "service_category_id", "image") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["details", "70"], ["store_details", "595"], ["price", 558], ["add_on", "130"], ["created_at", "2023-04-05 09:17:02.592814"], ["updated_at", "2023-04-05 09:17:02.592814"], ["service_category_id", 4], ["image", "http://res.cloudinary.com/dsc75sbwu/image/upload/v1680686219/sl4sjkexwzprrsamfsyj.jpg"]]
+  ↳ app/graphql/mutations/create_service.rb:17:in `resolve'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/graphql/mutations/create_service.rb:17:in `resolve'
+Completed 200 OK in 139ms (Views: 0.3ms | ActiveRecord: 12.8ms | Allocations: 13412)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:19:08 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.9ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 3915)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:23:20 +0800
+Started POST "/graphql" for ::1 at 2023-04-05 17:23:20 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 1974)
+
+
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 3566)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:23:33 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:27:08 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:27:24 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1927)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:27:52 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:29:00 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1927)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:30:04 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:31:12 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:32:50 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:32:57 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:34:08 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:34:14 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:34:35 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:34:40 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:34:44 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:34:55 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:34:59 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:35:03 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:36:02 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:36:02 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 3569)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:36:27 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1925)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:36:27 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+  [1m[36mServiceCategory Load (0.4ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 3566)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:36:43 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices($id: ID!) {\n  serviceFindById(id: $id) {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices($id: ID!) {\n  serviceFindById(id: $id) {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1031)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:39:32 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1926)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:39:38 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 192ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 2285)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:39:39 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.4ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 3566)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:39:43 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices($id: ID!) {\n  serviceFindById(id: $id) {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices($id: ID!) {\n  serviceFindById(id: $id) {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 975)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:40:39 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"UpdateService", "variables"=>{"details"=>"asdad", "storeDetails"=>"aasda", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680687635/todez5qwnlczpskqugjo.png", "price"=>559, "addOn"=>"asdsa", "serviceCategoryId"=>"2"}, "query"=>"mutation UpdateService($details: String!, $storeDetails: String!, $price: Int!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  updateService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"UpdateService", "variables"=>{"details"=>"asdad", "storeDetails"=>"aasda", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680687635/todez5qwnlczpskqugjo.png", "price"=>559, "addOn"=>"asdsa", "serviceCategoryId"=>"2"}, "query"=>"mutation UpdateService($details: String!, $storeDetails: String!, $price: Int!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  updateService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1581)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:42:04 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 181ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:42:05 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:42:06 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.4ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 3566)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:43:15 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 186ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:43:15 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:43:16 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+  [1m[36mServiceCategory Load (0.4ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 3566)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:43:32 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"UpdateService", "variables"=>{"details"=>"asdada", "storeDetails"=>"asdasd", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680687809/erzixjwunxwqpglo9ggn.png", "price"=>821, "addOn"=>"asdsadas", "serviceCategoryId"=>"4"}, "query"=>"mutation UpdateService($details: String!, $storeDetails: String!, $price: Int!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  updateService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"UpdateService", "variables"=>{"details"=>"asdada", "storeDetails"=>"asdasd", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680687809/erzixjwunxwqpglo9ggn.png", "price"=>821, "addOn"=>"asdsadas", "serviceCategoryId"=>"4"}, "query"=>"mutation UpdateService($details: String!, $storeDetails: String!, $price: Int!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  updateService(\n    input: {details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1552)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:44:43 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"UpdateService", "variables"=>{"id"=>"2", "details"=>"adsad", "storeDetails"=>"asdsad", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680687879/pcnkjcjfmwgdhshbdiji.png", "price"=>219, "addOn"=>"asdasd", "serviceCategoryId"=>"4"}, "query"=>"mutation UpdateService($id: ID!, $details: String!, $storeDetails: String!, $price: Int!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  updateService(\n    input: {id: $id, details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"UpdateService", "variables"=>{"id"=>"2", "details"=>"adsad", "storeDetails"=>"asdsad", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680687879/pcnkjcjfmwgdhshbdiji.png", "price"=>219, "addOn"=>"asdasd", "serviceCategoryId"=>"4"}, "query"=>"mutation UpdateService($id: ID!, $details: String!, $storeDetails: String!, $price: Int!, $addOn: String!, $image: String!, $serviceCategoryId: ID!) {\n  updateService(\n    input: {id: $id, details: $details, storeDetails: $storeDetails, price: $price, addOn: $addOn, image: $image, serviceCategoryId: $serviceCategoryId}\n  ) {\n    clientMutationId\n    errors\n    service {\n      addOn\n      createdAt\n      details\n      id\n      image\n      price\n      serviceCategoryId\n      storeDetails\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_service.rb:16:in `resolve'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/update_service.rb:18:in `resolve'
+  [1m[36mService Update (0.8ms)[0m  [1m[33mUPDATE "services" SET "details" = $1, "store_details" = $2, "price" = $3, "add_on" = $4, "updated_at" = $5, "image" = $6 WHERE "services"."id" = $7[0m  [["details", "adsad"], ["store_details", "asdsad"], ["price", 219], ["add_on", "asdasd"], ["updated_at", "2023-04-05 09:44:43.046260"], ["image", "http://res.cloudinary.com/dsc75sbwu/image/upload/v1680687879/pcnkjcjfmwgdhshbdiji.png"], ["id", 2]]
+  ↳ app/graphql/mutations/update_service.rb:18:in `resolve'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/graphql/mutations/update_service.rb:18:in `resolve'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 4444)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:44:43 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 3566)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:44:43 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 3566)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 17:45:19 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServices", "variables"=>{}, "query"=>"query AllServices {\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 3566)
+
+

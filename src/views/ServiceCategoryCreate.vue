@@ -13,6 +13,7 @@
       <label for="">Image: </label>
       <!-- <input type="file" @change="onAddFile" /> -->
       <button @click="openUploadModal()"></button>
+      <!-- <ImageUploadComponent v-model="image"></ImageUploadComponent> -->
 
       <button @click="createCategory()">Create service category</button>
     </form>
@@ -23,12 +24,15 @@
 import { ref } from "vue";
 import { useMutation } from "@vue/apollo-composable";
 import {
-  CREATE_SERVICE_CATEGORY,
+  CREATE_SERVICE,
   GET_ALL_SERVICE_CATEGORIES,
 } from "../graphql-operations";
 import router from "@/router";
 
 export default {
+  // components: {
+  //   ImageUploadComponent,
+  // },
   setup() {
     const name = ref("");
     const description = ref("");
@@ -39,7 +43,7 @@ export default {
       mutate: createCategory,
       onDone,
       onError,
-    } = useMutation(CREATE_SERVICE_CATEGORY, () => ({
+    } = useMutation(CREATE_SERVICE, () => ({
       variables: {
         name: name.value,
         description: description.value,
@@ -71,16 +75,15 @@ export default {
   },
   methods: {
     openUploadModal() {
-      window.cloudinary
-        .openUploadWidget(
-          { cloud_name: "dsc75sbwu", upload_preset: "d47ddnz9" },
-          (error, result) => {
-            if (!error && result && result.event === "success") {
-              this.image = result.info.url;
-            }
+      window.cloudinary.openUploadWidget(
+        { cloud_name: "dsc75sbwu", upload_preset: "d47ddnz9" },
+        (error, result) => {
+          console.log(error, result);
+          if (!error && result && result.event === "success") {
+            this.image = result.info.url;
           }
-        )
-        .open();
+        }
+      );
     },
   },
 };

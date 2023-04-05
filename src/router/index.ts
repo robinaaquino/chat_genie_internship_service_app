@@ -4,8 +4,12 @@ import LoginView from "../views/LoginView.vue";
 import SignupView from "../views/SignupView.vue";
 import ServiceView from "../views/ServiceView.vue";
 import ServiceCategoryCreate from "@/views/ServiceCategoryCreate.vue";
+import ServiceCreate from "@/views/ServiceCreate.vue";
 import ServiceCategoryEdit from "@/views/ServiceCategoryEdit.vue";
+import ServiceShow from "@/views/ServiceShow.vue";
 import store from "@/store";
+import { GET_SERVICE } from "@/graphql-operations";
+import { useQuery } from "@vue/apollo-composable";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -45,9 +49,28 @@ const routes: Array<RouteRecordRaw> = [
     component: ServiceView,
   },
   {
+    path: "/service-show/:id/:category_id",
+    name: "service-show",
+    component: ServiceShow,
+    props: true,
+  },
+  {
     path: "/service-category-create",
     name: "service-category-create",
     component: ServiceCategoryCreate,
+    beforeEnter(routeTo, routeFrom, next) {
+      if (store.state.user.role == "admin") {
+        next();
+      } else {
+        next({ name: "home" });
+      }
+    },
+  },
+  {
+    path: "/service-create/:id",
+    name: "service-create",
+    component: ServiceCreate,
+    props: true,
     beforeEnter(routeTo, routeFrom, next) {
       if (store.state.user.role == "admin") {
         next();

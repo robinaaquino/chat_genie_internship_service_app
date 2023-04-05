@@ -13,8 +13,8 @@
         |
         <router-link to="/service-category-create"
           >Service Category Create</router-link
-        ></span
-      >
+        >
+      </span>
 
       | <a href="" @click="logoutUser()">Logout</a>
     </span>
@@ -22,7 +22,7 @@
     <p>Role: {{ user.role }}</p>
     <p>Token: {{ user.token }}</p>
   </nav>
-  <router-view />
+  <router-view :key="$route.fullPath" />
 </template>
 
 <script>
