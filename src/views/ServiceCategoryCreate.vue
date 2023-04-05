@@ -50,10 +50,12 @@ export default {
     }));
 
     onError((e) => {
+      console.log(e);
       error.value = "Error during service category creation";
     });
 
     onDone((result) => {
+      console.log(result);
       router.push({
         name: "home",
       });

@@ -54,6 +54,7 @@ export default {
     }));
 
     onError((e) => {
+      console.log(e);
       error.value = "Error during updating service category";
     });
 
