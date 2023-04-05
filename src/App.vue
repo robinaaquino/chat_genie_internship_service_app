@@ -14,9 +14,6 @@
 
       | <a href="" @click="logoutUser()">Logout</a>
     </span>
-
-    <p>Role: {{ user.role }}</p>
-    <p>Token: {{ user.token }}</p>
   </nav>
   <router-view :key="$route.fullPath" />
 </template>
