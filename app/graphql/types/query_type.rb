@@ -16,6 +16,11 @@ module Types
       argument :id, ID
     end
 
+    field :all_services, [Types::ServiceType], null: false, description: "Return all services"
+    field :service_find_by_id, Types::ServiceType, "Find service by ID" do
+      argument :id, ID
+    end
+
     # TODO: remove me
     field :test_field, String, null: false,
       description: "An example field added by the generator"
@@ -37,6 +42,14 @@ module Types
 
     def service_category_find_by_id(id:)
       ServiceCategory.find(id)
+    end
+
+    def all_services
+      Service.all
+    end
+
+    def service_find_by_id(id:)
+      Service.find(id)
     end
   end
 end

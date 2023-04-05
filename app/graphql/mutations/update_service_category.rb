@@ -1,9 +1,9 @@
 module Mutations
   class UpdateServiceCategory < BaseMutation
     argument :id, ID, required: true
-    argument :name, String, required: true
-    argument :description, String, required: true
-    argument :image, String, required: true
+    argument :name, String, required: false
+    argument :description, String, required: false
+    argument :image, String, required: false
 
     field :service_category, Types::ServiceCategoryType, null: true
     field :errors, [String], null: false

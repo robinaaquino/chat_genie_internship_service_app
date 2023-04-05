@@ -17992,3 +17992,1056 @@ Processing by GraphqlController#execute as */*
 Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 2397)
 
 
+Started POST "/graphql" for ::1 at 2023-04-05 13:29:41 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (1.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 66ms (Views: 0.4ms | ActiveRecord: 8.1ms | Allocations: 5224)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:33:34 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 2397)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:33:50 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 2395)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 13:35:04 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"query AllServiceCategories {\r\n    allServiceCategories {\r\n        createdAt\r\n        description\r\n        id\r\n        image\r\n        name\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServiceCategories", "variables"=>{}, "graphql"=>{"query"=>"query AllServiceCategories {\r\n    allServiceCategories {\r\n        createdAt\r\n        description\r\n        id\r\n        image\r\n        name\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServiceCategories", "variables"=>{}}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 2950)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:35:22 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 188ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2167)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:35:22 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 13:37:08 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"query AllServiceCategories {\r\n    allServiceCategories {\r\n        createdAt\r\n        description\r\n        id\r\n        image\r\n        name\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServiceCategories", "variables"=>{}, "graphql"=>{"query"=>"query AllServiceCategories {\r\n    allServiceCategories {\r\n        createdAt\r\n        description\r\n        id\r\n        image\r\n        name\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServiceCategories", "variables"=>{}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 2940)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:44:10 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"UpdateServiceCategory", "variables"=>{"id"=>"2", "name"=>"Adrienne Marks", "description"=>"Vladimir Dunlap", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680673446/c6iginecvqlfsya2jb5d.jpg"}, "query"=>"mutation UpdateServiceCategory($id: ID!, $name: String!, $description: String!, $image: String!) {\n  updateServiceCategory(\n    input: {id: $id, name: $name, description: $description, image: $image}\n  ) {\n    clientMutationId\n    errors\n    serviceCategory {\n      createdAt\n      description\n      id\n      image\n      name\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"UpdateServiceCategory", "variables"=>{"id"=>"2", "name"=>"Adrienne Marks", "description"=>"Vladimir Dunlap", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680673446/c6iginecvqlfsya2jb5d.jpg"}, "query"=>"mutation UpdateServiceCategory($id: ID!, $name: String!, $description: String!, $image: String!) {\n  updateServiceCategory(\n    input: {id: $id, name: $name, description: $description, image: $image}\n  ) {\n    clientMutationId\n    errors\n    serviceCategory {\n      createdAt\n      description\n      id\n      image\n      name\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (1.4ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories" WHERE "service_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_service_category.rb:13:in `resolve'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/update_service_category.rb:15:in `resolve'
+  [1m[36mServiceCategory Update (0.5ms)[0m  [1m[33mUPDATE "service_categories" SET "name" = $1, "description" = $2, "updated_at" = $3, "image" = $4 WHERE "service_categories"."id" = $5[0m  [["name", "Adrienne Marks"], ["description", "Vladimir Dunlap"], ["updated_at", "2023-04-05 05:44:10.217102"], ["image", "http://res.cloudinary.com/dsc75sbwu/image/upload/v1680673446/c6iginecvqlfsya2jb5d.jpg"], ["id", 2]]
+  ↳ app/graphql/mutations/update_service_category.rb:15:in `resolve'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/graphql/mutations/update_service_category.rb:15:in `resolve'
+Completed 200 OK in 60ms (Views: 0.2ms | ActiveRecord: 10.5ms | Allocations: 6931)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:44:10 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 2396)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:44:10 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 2396)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 13:44:18 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"query AllServiceCategories {\r\n    allServiceCategories {\r\n        createdAt\r\n        description\r\n        id\r\n        image\r\n        name\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServiceCategories", "variables"=>{}, "graphql"=>{"query"=>"query AllServiceCategories {\r\n    allServiceCategories {\r\n        createdAt\r\n        description\r\n        id\r\n        image\r\n        name\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServiceCategories", "variables"=>{}}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 2946)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:44:33 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 186ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2163)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:44:33 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:44:51 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"UpdateServiceCategory", "variables"=>{"id"=>"3", "name"=>"Aubrey Davenport", "description"=>"Olympia Velasquez", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680673486/lmhdmhi8sdtjqlchbcfu.jpg"}, "query"=>"mutation UpdateServiceCategory($id: ID!, $name: String!, $description: String!, $image: String!) {\n  updateServiceCategory(\n    input: {id: $id, name: $name, description: $description, image: $image}\n  ) {\n    clientMutationId\n    errors\n    serviceCategory {\n      createdAt\n      description\n      id\n      image\n      name\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"UpdateServiceCategory", "variables"=>{"id"=>"3", "name"=>"Aubrey Davenport", "description"=>"Olympia Velasquez", "image"=>"http://res.cloudinary.com/dsc75sbwu/image/upload/v1680673486/lmhdmhi8sdtjqlchbcfu.jpg"}, "query"=>"mutation UpdateServiceCategory($id: ID!, $name: String!, $description: String!, $image: String!) {\n  updateServiceCategory(\n    input: {id: $id, name: $name, description: $description, image: $image}\n  ) {\n    clientMutationId\n    errors\n    serviceCategory {\n      createdAt\n      description\n      id\n      image\n      name\n      updatedAt\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories" WHERE "service_categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_service_category.rb:13:in `resolve'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/update_service_category.rb:15:in `resolve'
+  [1m[36mServiceCategory Update (0.3ms)[0m  [1m[33mUPDATE "service_categories" SET "name" = $1, "description" = $2, "updated_at" = $3, "image" = $4 WHERE "service_categories"."id" = $5[0m  [["name", "Aubrey Davenport"], ["description", "Olympia Velasquez"], ["updated_at", "2023-04-05 05:44:51.123645"], ["image", "http://res.cloudinary.com/dsc75sbwu/image/upload/v1680673486/lmhdmhi8sdtjqlchbcfu.jpg"], ["id", 3]]
+  ↳ app/graphql/mutations/update_service_category.rb:15:in `resolve'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/graphql/mutations/update_service_category.rb:15:in `resolve'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 3813)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:44:51 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 2397)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 13:44:54 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"query AllServiceCategories {\r\n    allServiceCategories {\r\n        createdAt\r\n        description\r\n        id\r\n        image\r\n        name\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServiceCategories", "variables"=>{}, "graphql"=>{"query"=>"query AllServiceCategories {\r\n    allServiceCategories {\r\n        createdAt\r\n        description\r\n        id\r\n        image\r\n        name\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServiceCategories", "variables"=>{}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 2945)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:47:13 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServiceCategories", "variables"=>{}, "query"=>"query AllServiceCategories {\n  allServiceCategories {\n    createdAt\n    description\n    id\n    image\n    name\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceCategory Load (0.3ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories"[0m
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 2397)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:47:26 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"customer", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"customer", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "customer"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 184ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2163)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:47:26 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:47:42 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 13:48:06 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllUsers", "variables"=>{}, "query"=>"query AllUsers {\n  allUsers {\n    createdAt\n    id\n    passwordDigest\n    role\n    updatedAt\n    username\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1924)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 14:48:29 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation UpdateServiceCategory {\r\n    updateServiceCategory(\r\n        input: {id: 1, name: \"name1\", description: \"desc\"}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        serviceCategory {\r\n            createdAt\r\n            description\r\n            id\r\n            image\r\n            name\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"UpdateServiceCategory", "variables"=>{}, "graphql"=>{"query"=>"mutation UpdateServiceCategory {\r\n    updateServiceCategory(\r\n        input: {id: 1, name: \"name1\", description: \"desc\"}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        serviceCategory {\r\n            createdAt\r\n            description\r\n            id\r\n            image\r\n            name\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"UpdateServiceCategory", "variables"=>{}}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 352ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 15784)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 14:48:53 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation UpdateServiceCategory {\r\n    updateServiceCategory(\r\n        input: {id: 1, name: \"name1\", description: \"desc\"}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        serviceCategory {\r\n            createdAt\r\n            description\r\n            id\r\n            image\r\n            name\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"UpdateServiceCategory", "variables"=>{}, "graphql"=>{"query"=>"mutation UpdateServiceCategory {\r\n    updateServiceCategory(\r\n        input: {id: 1, name: \"name1\", description: \"desc\"}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        serviceCategory {\r\n            createdAt\r\n            description\r\n            id\r\n            image\r\n            name\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"UpdateServiceCategory", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mServiceCategory Load (1.6ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories" WHERE "service_categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_service_category.rb:13:in `resolve'
+Couldn't find ServiceCategory with 'id'=1
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/core.rb:284:in `find'
+F:/Internship/environment/service_app/app/graphql/mutations/update_service_category.rb:13:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `block (3 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:93:in `block (2 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:84:in `block in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:73:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/relay_classic_mutation.rb:58:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `block (2 levels) in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:817:in `with_extensions'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:665:in `block in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:663:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:511:in `block (3 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/tracing.rb:70:in `execute_field'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:510:in `block (2 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:851:in `call_method_on_directives'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:507:in `block in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:957:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:445:in `evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:439:in `block in evaluate_selection'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/member/has_arguments.rb:288:in `block (3 levels) in coerce_arguments'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:181:in `block in run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:306:in `block in spawn_fiber'
+Completed 500 Internal Server Error in 78ms (Views: 0.4ms | ActiveRecord: 14.7ms | Allocations: 18492)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 14:49:02 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation UpdateServiceCategory {\r\n    updateServiceCategory(\r\n        input: {id: 2, name: \"name1\", description: \"desc\"}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        serviceCategory {\r\n            createdAt\r\n            description\r\n            id\r\n            image\r\n            name\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"UpdateServiceCategory", "variables"=>{}, "graphql"=>{"query"=>"mutation UpdateServiceCategory {\r\n    updateServiceCategory(\r\n        input: {id: 2, name: \"name1\", description: \"desc\"}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        serviceCategory {\r\n            createdAt\r\n            description\r\n            id\r\n            image\r\n            name\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"UpdateServiceCategory", "variables"=>{}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories" WHERE "service_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_service_category.rb:13:in `resolve'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/update_service_category.rb:15:in `resolve'
+  [1m[36mServiceCategory Update (0.7ms)[0m  [1m[33mUPDATE "service_categories" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "service_categories"."id" = $4[0m  [["name", "name1"], ["description", "desc"], ["updated_at", "2023-04-05 06:49:02.100175"], ["id", 2]]
+  ↳ app/graphql/mutations/update_service_category.rb:15:in `resolve'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/graphql/mutations/update_service_category.rb:15:in `resolve'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 6055)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 14:50:17 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation CreateServiceCategory {\r\n    createServiceCategory(input: {name: \"\", description: \"desc\", image: \"img\"}) {\r\n        clientMutationId\r\n        errors\r\n        serviceCategory {\r\n            createdAt\r\n            description\r\n            id\r\n            image\r\n            name\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"CreateServiceCategory", "variables"=>{}, "graphql"=>{"query"=>"mutation CreateServiceCategory {\r\n    createServiceCategory(input: {name: \"\", description: \"desc\", image: \"img\"}) {\r\n        clientMutationId\r\n        errors\r\n        serviceCategory {\r\n            createdAt\r\n            description\r\n            id\r\n            image\r\n            name\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"CreateServiceCategory", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/create_service_category.rb:14:in `resolve'
+  [1m[36mServiceCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "service_categories" ("name", "description", "created_at", "updated_at", "image") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", ""], ["description", "desc"], ["created_at", "2023-04-05 06:50:17.157036"], ["updated_at", "2023-04-05 06:50:17.157036"], ["image", "img"]]
+  ↳ app/graphql/mutations/create_service_category.rb:14:in `resolve'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/graphql/mutations/create_service_category.rb:14:in `resolve'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 3892)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 15:11:45 +0800
+Processing by GraphqlController#execute as */*
+uninitialized constant Types::Service
+
+    field :service, Types::Service, null: true
+                         ^^^^^^^^^
+Did you mean?  ServiceApp
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:5:in `<class:DeleteService>'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:2:in `<module:Mutations>'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:1:in `<main>'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/zeitwerk-2.6.7/lib/zeitwerk/kernel.rb:30:in `require'
+F:/Internship/environment/service_app/app/graphql/types/mutation_type.rb:15:in `<class:MutationType>'
+F:/Internship/environment/service_app/app/graphql/types/mutation_type.rb:2:in `<module:Types>'
+F:/Internship/environment/service_app/app/graphql/types/mutation_type.rb:1:in `<main>'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/zeitwerk-2.6.7/lib/zeitwerk/kernel.rb:30:in `require'
+F:/Internship/environment/service_app/app/graphql/service_app_schema.rb:2:in `<class:ServiceAppSchema>'
+F:/Internship/environment/service_app/app/graphql/service_app_schema.rb:1:in `<main>'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/zeitwerk-2.6.7/lib/zeitwerk/kernel.rb:30:in `require'
+F:/Internship/environment/service_app/app/controllers/graphql_controller.rb:16:in `execute'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/base.rb:215:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/rendering.rb:53:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:99:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/callbacks.rb:233:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/rescue.rb:22:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/notifications.rb:206:in `block in instrument'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/notifications.rb:206:in `instrument'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/base.rb:151:in `process'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal.rb:188:in `dispatch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal.rb:251:in `dispatch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/routing/route_set.rb:32:in `serve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/journey/router.rb:32:in `each'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/journey/router.rb:32:in `serve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/routing/route_set.rb:852:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/tempfile_reaper.rb:15:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/etag.rb:27:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/conditional_get.rb:40:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/head.rb:12:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/session/abstract/id.rb:266:in `context'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/session/abstract/id.rb:260:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/cookies.rb:704:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/migration.rb:603:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:99:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/rack/logger.rb:40:in `call_app'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/rack/logger.rb:25:in `block in call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/tagged_logging.rb:99:in `block in tagged'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/tagged_logging.rb:37:in `tagged'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/tagged_logging.rb:99:in `tagged'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/rack/logger.rb:25:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/method_override.rb:24:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/runtime.rb:22:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/static.rb:23:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/sendfile.rb:110:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/engine.rb:530:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Completed 500 Internal Server Error in 68ms (Views: 0.7ms | Allocations: 13892)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:12:37 +0800
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:12:37 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+uninitialized constant Types::Service
+
+    field :service, Types::Service, null: true
+                         ^^^^^^^^^
+Did you mean?  ServiceApp
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:5:in `<class:DeleteService>'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:2:in `<module:Mutations>'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:1:in `<main>'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/zeitwerk-2.6.7/lib/zeitwerk/kernel.rb:30:in `require'
+F:/Internship/environment/service_app/app/graphql/types/mutation_type.rb:15:in `<class:MutationType>'
+F:/Internship/environment/service_app/app/graphql/types/mutation_type.rb:2:in `<module:Types>'
+F:/Internship/environment/service_app/app/graphql/types/mutation_type.rb:1:in `<main>'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/zeitwerk-2.6.7/lib/zeitwerk/kernel.rb:30:in `require'
+F:/Internship/environment/service_app/app/graphql/service_app_schema.rb:2:in `<class:ServiceAppSchema>'
+F:/Internship/environment/service_app/app/graphql/service_app_schema.rb:1:in `<main>'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/zeitwerk-2.6.7/lib/zeitwerk/kernel.rb:30:in `require'
+F:/Internship/environment/service_app/app/controllers/graphql_controller.rb:16:in `execute'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/base.rb:215:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/rendering.rb:53:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:99:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/callbacks.rb:233:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/rescue.rb:22:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/notifications.rb:206:in `block in instrument'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/notifications.rb:206:in `instrument'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/base.rb:151:in `process'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal.rb:188:in `dispatch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal.rb:251:in `dispatch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/routing/route_set.rb:32:in `serve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/journey/router.rb:32:in `each'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/journey/router.rb:32:in `serve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/routing/route_set.rb:852:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/tempfile_reaper.rb:15:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/etag.rb:27:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/conditional_get.rb:40:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/head.rb:12:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/session/abstract/id.rb:266:in `context'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/session/abstract/id.rb:260:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/cookies.rb:704:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/migration.rb:603:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:99:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/rack/logger.rb:40:in `call_app'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/rack/logger.rb:25:in `block in call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/tagged_logging.rb:99:in `block in tagged'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/tagged_logging.rb:37:in `tagged'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/tagged_logging.rb:99:in `tagged'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/rack/logger.rb:25:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/method_override.rb:24:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/runtime.rb:22:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/static.rb:23:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/sendfile.rb:110:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/engine.rb:530:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Completed 500 Internal Server Error in 149ms (Views: 0.5ms | ActiveRecord: 12.0ms | Allocations: 16855)
+
+
+uninitialized constant Types::Service
+
+    field :service, Types::Service, null: true
+                         ^^^^^^^^^
+Did you mean?  ServiceApp
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:5:in `<class:DeleteService>'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:2:in `<module:Mutations>'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:1:in `<main>'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/zeitwerk-2.6.7/lib/zeitwerk/kernel.rb:30:in `require'
+F:/Internship/environment/service_app/app/graphql/types/mutation_type.rb:15:in `<class:MutationType>'
+F:/Internship/environment/service_app/app/graphql/types/mutation_type.rb:2:in `<module:Types>'
+F:/Internship/environment/service_app/app/graphql/types/mutation_type.rb:1:in `<main>'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/zeitwerk-2.6.7/lib/zeitwerk/kernel.rb:30:in `require'
+F:/Internship/environment/service_app/app/graphql/service_app_schema.rb:2:in `<class:ServiceAppSchema>'
+F:/Internship/environment/service_app/app/graphql/service_app_schema.rb:1:in `<main>'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+<internal:C:/Ruby31-x64/lib/ruby/site_ruby/3.1.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/zeitwerk-2.6.7/lib/zeitwerk/kernel.rb:30:in `require'
+F:/Internship/environment/service_app/app/controllers/graphql_controller.rb:16:in `execute'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/base.rb:215:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/rendering.rb:53:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:99:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/callbacks.rb:233:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/rescue.rb:22:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/notifications.rb:206:in `block in instrument'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/notifications.rb:206:in `instrument'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/abstract_controller/base.rb:151:in `process'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal.rb:188:in `dispatch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_controller/metal.rb:251:in `dispatch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/routing/route_set.rb:32:in `serve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/journey/router.rb:32:in `each'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/journey/router.rb:32:in `serve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/routing/route_set.rb:852:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/tempfile_reaper.rb:15:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/etag.rb:27:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/conditional_get.rb:40:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/head.rb:12:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/session/abstract/id.rb:266:in `context'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/session/abstract/id.rb:260:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/cookies.rb:704:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/migration.rb:603:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:99:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/rack/logger.rb:40:in `call_app'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/rack/logger.rb:25:in `block in call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/tagged_logging.rb:99:in `block in tagged'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/tagged_logging.rb:37:in `tagged'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/tagged_logging.rb:99:in `tagged'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/rack/logger.rb:25:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/method_override.rb:24:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/runtime.rb:22:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/static.rb:23:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-2.2.6.4/lib/rack/sendfile.rb:110:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4.3/lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/engine.rb:530:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Completed 500 Internal Server Error in 181ms (Views: 0.5ms | ActiveRecord: 15.9ms | Allocations: 22358)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:13:27 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 127ms (Views: 6.9ms | ActiveRecord: 16.2ms | Allocations: 55941)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:15:01 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation CreateService {\r\n    createService(\r\n        input: {details: \"details\", storeDetails: \"details\", price: 2, addOn: \"\", image: \"asd\", serviceCategoryId: 3}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"CreateService", "variables"=>{}, "graphql"=>{"query"=>"mutation CreateService {\r\n    createService(\r\n        input: {details: \"details\", storeDetails: \"details\", price: 2, addOn: \"\", image: \"asd\", serviceCategoryId: 3}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"CreateService", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/create_service.rb:17:in `resolve'
+  [1m[36mServiceCategory Load (1.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories" WHERE "service_categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/create_service.rb:17:in `resolve'
+  [1m[36mService Create (1.9ms)[0m  [1m[32mINSERT INTO "services" ("details", "store_details", "price", "add_on", "created_at", "updated_at", "service_category_id", "image") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["details", "details"], ["store_details", "details"], ["price", 2], ["add_on", ""], ["created_at", "2023-04-05 07:15:01.897301"], ["updated_at", "2023-04-05 07:15:01.897301"], ["service_category_id", 3], ["image", "asd"]]
+  ↳ app/graphql/mutations/create_service.rb:17:in `resolve'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/graphql/mutations/create_service.rb:17:in `resolve'
+Completed 200 OK in 194ms (Views: 0.2ms | ActiveRecord: 9.3ms | Allocations: 21369)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:15:08 +0800
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:15:08 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 113ms (Views: 6.7ms | ActiveRecord: 0.2ms | Allocations: 37336)
+
+
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 53ms (Views: 7.6ms | ActiveRecord: 0.3ms | Allocations: 37034)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:15:15 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"query AllServices {\r\n    allServices {\r\n        addOn\r\n        createdAt\r\n        details\r\n        id\r\n        image\r\n        price\r\n        serviceCategoryId\r\n        storeDetails\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServices", "variables"=>{}, "graphql"=>{"query"=>"query AllServices {\r\n    allServices {\r\n        addOn\r\n        createdAt\r\n        details\r\n        id\r\n        image\r\n        price\r\n        serviceCategoryId\r\n        storeDetails\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServices", "variables"=>{}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+              Failed to implement Query.allServices, tried:
+
+              - `Types::QueryType#all_services`, which did not exist
+              - `NilClass#all_services`, which did not exist
+              - Looking up hash key `:all_services` or `"all_services"` on ``, but it wasn't a Hash
+
+              To implement this field, define one of the methods above (and check for typos), or supply a `fallback_value`.
+
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:721:in `block (2 levels) in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:828:in `block in with_extensions'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:864:in `block (2 levels) in run_extensions_before_resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:867:in `run_extensions_before_resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:864:in `block in run_extensions_before_resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field_extension.rb:137:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:851:in `run_extensions_before_resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:823:in `with_extensions'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:665:in `block in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:663:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:511:in `block (3 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/tracing.rb:70:in `execute_field'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:510:in `block (2 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:851:in `call_method_on_directives'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:507:in `block in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:957:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:445:in `evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:435:in `evaluate_selection'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:373:in `block (2 levels) in evaluate_selections'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:181:in `block in run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:306:in `block in spawn_fiber'
+Completed 500 Internal Server Error in 9ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1714)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:15:32 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"query AllServices {\r\n    allServices {\r\n        addOn\r\n        createdAt\r\n        details\r\n        id\r\n        image\r\n        price\r\n        serviceCategoryId\r\n        storeDetails\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServices", "variables"=>{}, "graphql"=>{"query"=>"query AllServices {\r\n    allServices {\r\n        addOn\r\n        createdAt\r\n        details\r\n        id\r\n        image\r\n        price\r\n        serviceCategoryId\r\n        storeDetails\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServices", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+Completed 200 OK in 63ms (Views: 0.2ms | ActiveRecord: 5.3ms | Allocations: 23924)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:17:03 +0800
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:17:03 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 54ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 38583)
+
+
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 58ms (Views: 7.2ms | ActiveRecord: 0.3ms | Allocations: 37235)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:17:56 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 113ms (Views: 8.1ms | ActiveRecord: 2.9ms | Allocations: 55684)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:18:08 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation UpdateService {\r\n    updateService(\r\n        input: {details: null, storeDetails: null, price: null, addOn: null, image: null, serviceCategoryId: null, id: 1}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"UpdateService", "variables"=>{}, "graphql"=>{"query"=>"mutation UpdateService {\r\n    updateService(\r\n        input: {details: null, storeDetails: null, price: null, addOn: null, image: null, serviceCategoryId: null, id: 1}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"UpdateService", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_service.rb:16:in `resolve'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 8954)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:18:24 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation UpdateService {\r\n    updateService(\r\n        input: {details: null, storeDetails: null, price: null, addOn: null, image: null, serviceCategoryId: 2, id: 1}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"UpdateService", "variables"=>{}, "graphql"=>{"query"=>"mutation UpdateService {\r\n    updateService(\r\n        input: {details: null, storeDetails: null, price: null, addOn: null, image: null, serviceCategoryId: 2, id: 1}\r\n    ) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"UpdateService", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_service.rb:16:in `resolve'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/update_service.rb:18:in `resolve'
+  [1m[36mServiceCategory Load (0.2ms)[0m  [1m[34mSELECT "service_categories".* FROM "service_categories" WHERE "service_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_service.rb:18:in `resolve'
+  [1m[36mService Update (0.5ms)[0m  [1m[33mUPDATE "services" SET "details" = $1, "store_details" = $2, "price" = $3, "add_on" = $4, "updated_at" = $5, "service_category_id" = $6, "image" = $7 WHERE "services"."id" = $8[0m  [["details", nil], ["store_details", nil], ["price", nil], ["add_on", nil], ["updated_at", "2023-04-05 07:18:25.949392"], ["service_category_id", 2], ["image", nil], ["id", 1]]
+  ↳ app/graphql/mutations/update_service.rb:18:in `resolve'
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/graphql/mutations/update_service.rb:18:in `resolve'
+Completed 200 OK in 91ms (Views: 0.2ms | ActiveRecord: 15.3ms | Allocations: 30915)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:18:36 +0800
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:18:36 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 59ms (Views: 13.2ms | ActiveRecord: 0.1ms | Allocations: 38470)
+
+
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 50ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 37167)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:18:38 +0800
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:18:38 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 110ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 36978)
+
+
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 53ms (Views: 7.6ms | ActiveRecord: 0.2ms | Allocations: 36966)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:19:58 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}, "graphql"=>{"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:9:in `resolve'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mServiceDate Load (1.7ms)[0m  [1m[34mSELECT "service_dates".* FROM "service_dates" WHERE "service_dates"."service_id" = $1[0m  [["service_id", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+PG::UndefinedColumn: ERROR:  column service_categories.service_id does not exist
+LINE 1: ...ice_categories".* FROM "service_categories" WHERE "service_c...
+                                                             ^
+
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `prepare'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `block in prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:832:in `prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:778:in `exec_cache'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:747:in `execute_and_clear'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql/database_statements.rb:54:in `exec_query'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:560:in `select'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:66:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `block in select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:137:in `block in cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:128:in `cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:54:in `_query_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:50:in `find_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/statement_cache.rb:150:in `execute'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/association.rb:232:in `find_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/collection_association.rb:264:in `load_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/has_many_association.rb:27:in `handle_dependency'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/builder/association.rb:141:in `block in add_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `instance_exec'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `block in make_lambda'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:687:in `block (2 levels) in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `catch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `block in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:200:in `block in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `block in invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `each'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:106:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:929:in `_run_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/callbacks.rb:439:in `destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `block in destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:316:in `transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `destroy'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:11:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `block (3 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:93:in `block (2 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:84:in `block in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:73:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/relay_classic_mutation.rb:58:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `block (2 levels) in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:817:in `with_extensions'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:665:in `block in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:663:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:511:in `block (3 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/tracing.rb:70:in `execute_field'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:510:in `block (2 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:851:in `call_method_on_directives'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:507:in `block in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:957:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:445:in `evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:439:in `block in evaluate_selection'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/member/has_arguments.rb:288:in `block (3 levels) in coerce_arguments'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:181:in `block in run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:306:in `block in spawn_fiber'
+Completed 500 Internal Server Error in 122ms (Views: 0.5ms | ActiveRecord: 3.6ms | Allocations: 12548)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:21:10 +0800
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:21:10 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 55ms (Views: 11.8ms | ActiveRecord: 0.2ms | Allocations: 37294)
+
+
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}, "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "variables"=>{}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+Completed 200 OK in 48ms (Views: 6.8ms | ActiveRecord: 0.1ms | Allocations: 36957)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:21:10 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"query AllServices {\r\n    allServices {\r\n        addOn\r\n        createdAt\r\n        details\r\n        id\r\n        image\r\n        price\r\n        serviceCategoryId\r\n        storeDetails\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServices", "variables"=>{}, "graphql"=>{"query"=>"query AllServices {\r\n    allServices {\r\n        addOn\r\n        createdAt\r\n        details\r\n        id\r\n        image\r\n        price\r\n        serviceCategoryId\r\n        storeDetails\r\n        updatedAt\r\n    }\r\n}\r\n", "operationName"=>"AllServices", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 2209)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:21:20 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}, "graphql"=>{"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:9:in `resolve'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mServiceDate Load (0.3ms)[0m  [1m[34mSELECT "service_dates".* FROM "service_dates" WHERE "service_dates"."service_id" = $1[0m  [["service_id", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+PG::UndefinedColumn: ERROR:  column service_categories.service_id does not exist
+LINE 1: ...ice_categories".* FROM "service_categories" WHERE "service_c...
+                                                             ^
+
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `prepare'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `block in prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:832:in `prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:778:in `exec_cache'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:747:in `execute_and_clear'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql/database_statements.rb:54:in `exec_query'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:560:in `select'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:66:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `block in select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:137:in `block in cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:128:in `cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:54:in `_query_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:50:in `find_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/statement_cache.rb:150:in `execute'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/association.rb:232:in `find_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/collection_association.rb:264:in `load_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/has_many_association.rb:27:in `handle_dependency'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/builder/association.rb:141:in `block in add_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `instance_exec'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `block in make_lambda'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:687:in `block (2 levels) in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `catch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `block in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:200:in `block in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `block in invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `each'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:106:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:929:in `_run_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/callbacks.rb:439:in `destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `block in destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:316:in `transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `destroy'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:11:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `block (3 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:93:in `block (2 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:84:in `block in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:73:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/relay_classic_mutation.rb:58:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `block (2 levels) in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:817:in `with_extensions'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:665:in `block in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:663:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:511:in `block (3 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/tracing.rb:70:in `execute_field'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:510:in `block (2 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:851:in `call_method_on_directives'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:507:in `block in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:957:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:445:in `evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:439:in `block in evaluate_selection'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/member/has_arguments.rb:288:in `block (3 levels) in coerce_arguments'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:181:in `block in run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:306:in `block in spawn_fiber'
+Completed 500 Internal Server Error in 22ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 4772)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6449201451464260650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6449201451464260650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/graphql" for 127.0.0.1 at 2023-04-05 15:23:19 +0800
+Processing by GraphqlController#execute as JSON
+  Parameters: {"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}, "graphql"=>{"query"=>"mutation DeleteService {\r\n    deleteService(input: {id: 1}) {\r\n        clientMutationId\r\n        errors\r\n        service {\r\n            addOn\r\n            createdAt\r\n            details\r\n            id\r\n            image\r\n            price\r\n            serviceCategoryId\r\n            storeDetails\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n", "operationName"=>"DeleteService", "variables"=>{}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/graphql_controller.rb:31:in `current_user'
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:9:in `resolve'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mServiceDate Load (0.2ms)[0m  [1m[34mSELECT "service_dates".* FROM "service_dates" WHERE "service_dates"."service_id" = $1[0m  [["service_id", 1]]
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/graphql/mutations/delete_service.rb:11:in `resolve'
+PG::UndefinedColumn: ERROR:  column service_categories.service_id does not exist
+LINE 1: ...ice_categories".* FROM "service_categories" WHERE "service_c...
+                                                             ^
+
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `prepare'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:837:in `block in prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:832:in `prepare_statement'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:778:in `exec_cache'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:747:in `execute_and_clear'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql/database_statements.rb:54:in `exec_query'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:560:in `select'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:66:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `block in select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:137:in `block in cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:128:in `cache_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/query_cache.rb:107:in `select_all'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:54:in `_query_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/querying.rb:50:in `find_by_sql'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/statement_cache.rb:150:in `execute'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/association.rb:232:in `find_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/collection_association.rb:264:in `load_target'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/has_many_association.rb:27:in `handle_dependency'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/associations/builder/association.rb:141:in `block in add_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `instance_exec'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:467:in `block in make_lambda'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:687:in `block (2 levels) in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `catch'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:686:in `block in default_terminator'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:200:in `block in halting'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `block in invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `each'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:595:in `invoke_before'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:106:in `run_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/callbacks.rb:929:in `_run_destroy_callbacks'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/callbacks.rb:439:in `destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `block in destroy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/abstract/database_statements.rb:316:in `transaction'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/transactions.rb:294:in `destroy'
+F:/Internship/environment/service_app/app/graphql/mutations/delete_service.rb:11:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:105:in `block (3 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:93:in `block (2 levels) in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:84:in `block in resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/resolver.rb:73:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/relay_classic_mutation.rb:58:in `resolve_with_support'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `public_send'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:694:in `block (2 levels) in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:817:in `with_extensions'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:665:in `block in resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema.rb:1078:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/field.rb:663:in `resolve'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:511:in `block (3 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/tracing.rb:70:in `execute_field'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:510:in `block (2 levels) in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:851:in `call_method_on_directives'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:507:in `block in evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:957:in `after_lazy'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:445:in `evaluate_selection_with_args'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/execution/interpreter/runtime.rb:439:in `block in evaluate_selection'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/schema/member/has_arguments.rb:288:in `block (3 levels) in coerce_arguments'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:181:in `block in run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/graphql-2.0.20/lib/graphql/dataloader.rb:306:in `block in spawn_fiber'
+Completed 500 Internal Server Error in 94ms (Views: 1.0ms | ActiveRecord: 6.9ms | Allocations: 30370)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6449201451464260650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6449201451464260650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6449201451464260650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveServiceFromServiceCategory (20230405072601)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6449201451464260650)[0m
