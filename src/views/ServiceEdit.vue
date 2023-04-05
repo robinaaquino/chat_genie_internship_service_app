@@ -66,7 +66,7 @@
               :to="{
                 name: 'timeslot-update',
                 params: {
-                  id: id,
+                  id: timeslot.id,
                 },
               }"
               >Edit slots

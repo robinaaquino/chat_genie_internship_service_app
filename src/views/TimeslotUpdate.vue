@@ -31,6 +31,7 @@ export default {
     const errorMutation = ref("");
     const route = useRoute();
 
+    const id = route.params.id;
     const {
       mutate: createTime,
       onDone,
@@ -38,14 +39,14 @@ export default {
     } = useMutation(UPDATE_TIMESLOT, () => ({
       variables: {
         slots: slots.value,
-        serviceId: route.params.id,
+        id: id,
       },
       refetchQueries: [{ query: GET_ALL }],
     }));
 
     onError((e) => {
       console.log(e);
-      errorMutation.value = "Error during service creation";
+      errorMutation.value = "Error timeslot update";
     });
 
     onDone((result) => {
