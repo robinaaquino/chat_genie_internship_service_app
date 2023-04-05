@@ -23253,3 +23253,61 @@ Processing by GraphqlController#execute as */*
 Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 5298)
 
 
+Started POST "/graphql" for ::1 at 2023-04-05 23:51:42 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServicesDatesAndTimeSlots", "variables"=>{}, "query"=>"query AllServicesDatesAndTimeSlots {\n  allDates {\n    createdAt\n    date\n    id\n    serviceId\n    updatedAt\n    __typename\n  }\n  allTimeslots {\n    createdAt\n    id\n    serviceId\n    slots\n    time\n    updatedAt\n    __typename\n  }\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServicesDatesAndTimeSlots", "variables"=>{}, "query"=>"query AllServicesDatesAndTimeSlots {\n  allDates {\n    createdAt\n    date\n    id\n    serviceId\n    updatedAt\n    __typename\n  }\n  allTimeslots {\n    createdAt\n    id\n    serviceId\n    slots\n    time\n    updatedAt\n    __typename\n  }\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceDate Load (0.2ms)[0m  [1m[34mSELECT "service_dates".* FROM "service_dates"[0m
+  [1m[36mServiceTimeslot Load (0.2ms)[0m  [1m[34mSELECT "service_timeslots".* FROM "service_timeslots"[0m
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 3301)
+
+
+Started POST "/graphql" for ::1 at 2023-04-05 23:52:31 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServicesDatesAndTimeSlots", "variables"=>{}, "query"=>"query AllServicesDatesAndTimeSlots {\n  allDates {\n    createdAt\n    date\n    id\n    serviceId\n    updatedAt\n    __typename\n  }\n  allTimeslots {\n    createdAt\n    id\n    serviceId\n    slots\n    time\n    updatedAt\n    __typename\n  }\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServicesDatesAndTimeSlots", "variables"=>{}, "query"=>"query AllServicesDatesAndTimeSlots {\n  allDates {\n    createdAt\n    date\n    id\n    serviceId\n    updatedAt\n    __typename\n  }\n  allTimeslots {\n    createdAt\n    id\n    serviceId\n    slots\n    time\n    updatedAt\n    __typename\n  }\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceDate Load (0.3ms)[0m  [1m[34mSELECT "service_dates".* FROM "service_dates"[0m
+  [1m[36mServiceTimeslot Load (0.2ms)[0m  [1m[34mSELECT "service_timeslots".* FROM "service_timeslots"[0m
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 3298)
+
+
+Started POST "/graphql" for ::1 at 2023-04-06 00:01:18 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServicesDatesAndTimeSlots", "variables"=>{}, "query"=>"query AllServicesDatesAndTimeSlots {\n  allDates {\n    createdAt\n    date\n    id\n    serviceId\n    updatedAt\n    __typename\n  }\n  allTimeslots {\n    createdAt\n    id\n    serviceId\n    slots\n    time\n    updatedAt\n    __typename\n  }\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServicesDatesAndTimeSlots", "variables"=>{}, "query"=>"query AllServicesDatesAndTimeSlots {\n  allDates {\n    createdAt\n    date\n    id\n    serviceId\n    updatedAt\n    __typename\n  }\n  allTimeslots {\n    createdAt\n    id\n    serviceId\n    slots\n    time\n    updatedAt\n    __typename\n  }\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceDate Load (1.1ms)[0m  [1m[34mSELECT "service_dates".* FROM "service_dates"[0m
+  [1m[36mServiceTimeslot Load (1.2ms)[0m  [1m[34mSELECT "service_timeslots".* FROM "service_timeslots"[0m
+  [1m[36mService Load (1.6ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 10.6ms | Allocations: 6149)
+
+
+Started POST "/graphql" for ::1 at 2023-04-06 00:02:26 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 191ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 2561)
+
+
+Started POST "/graphql" for ::1 at 2023-04-06 00:02:38 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"LogoutUser", "variables"=>{}, "query"=>"mutation LogoutUser {\n  logoutUser(input: {}) {\n    clientMutationId\n    errors\n    token\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"LogoutUser", "variables"=>{}, "query"=>"mutation LogoutUser {\n  logoutUser(input: {}) {\n    clientMutationId\n    errors\n    token\n    __typename\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1014)
+
+
+Started POST "/graphql" for ::1 at 2023-04-06 00:02:45 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"SigninUser", "variables"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "query"=>"mutation SigninUser($username: String!, $password: String!) {\n  signinUser(input: {credentials: {username: $username, password: $password}}) {\n    clientMutationId\n    token\n    errors\n    user {\n      createdAt\n      id\n      passwordDigest\n      role\n      updatedAt\n      username\n      __typename\n    }\n    __typename\n  }\n}"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/sign_in_user.rb:20:in `resolve'
+Completed 200 OK in 187ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2161)
+
+
+Started POST "/graphql" for ::1 at 2023-04-06 00:02:45 +0800
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"AllServicesDatesAndTimeSlots", "variables"=>{}, "query"=>"query AllServicesDatesAndTimeSlots {\n  allDates {\n    createdAt\n    date\n    id\n    serviceId\n    updatedAt\n    __typename\n  }\n  allTimeslots {\n    createdAt\n    id\n    serviceId\n    slots\n    time\n    updatedAt\n    __typename\n  }\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}", "graphql"=>{"operationName"=>"AllServicesDatesAndTimeSlots", "variables"=>{}, "query"=>"query AllServicesDatesAndTimeSlots {\n  allDates {\n    createdAt\n    date\n    id\n    serviceId\n    updatedAt\n    __typename\n  }\n  allTimeslots {\n    createdAt\n    id\n    serviceId\n    slots\n    time\n    updatedAt\n    __typename\n  }\n  allServices {\n    addOn\n    createdAt\n    details\n    id\n    image\n    price\n    serviceCategoryId\n    storeDetails\n    updatedAt\n    __typename\n  }\n}"}}
+  [1m[36mServiceDate Load (0.3ms)[0m  [1m[34mSELECT "service_dates".* FROM "service_dates"[0m
+  [1m[36mServiceTimeslot Load (0.3ms)[0m  [1m[34mSELECT "service_timeslots".* FROM "service_timeslots"[0m
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services"[0m
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 3299)
+
+
