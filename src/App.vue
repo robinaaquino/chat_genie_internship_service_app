@@ -10,6 +10,8 @@
       <span v-if="user.role == 'admin'">
         |
         <router-link to="/booking-list">Booking List</router-link>
+        |
+        <router-link to="/service">Service Admin List</router-link>
       </span>
 
       | <a href="" @click="logoutUser()">Logout</a>
