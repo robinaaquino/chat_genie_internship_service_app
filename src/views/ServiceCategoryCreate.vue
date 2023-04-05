@@ -23,7 +23,7 @@
 <script>
 import { ref } from "vue";
 import { useMutation } from "@vue/apollo-composable";
-import { CREATE_SERVICE, GET_ALL } from "../graphql-operations";
+import { CREATE_SERVICE_CATEGORY, GET_ALL } from "../graphql-operations";
 import router from "@/router";
 
 export default {
@@ -40,7 +40,7 @@ export default {
       mutate: createCategory,
       onDone,
       onError,
-    } = useMutation(CREATE_SERVICE, () => ({
+    } = useMutation(CREATE_SERVICE_CATEGORY, () => ({
       variables: {
         name: name.value,
         description: description.value,
